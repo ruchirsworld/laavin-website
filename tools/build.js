@@ -19,6 +19,15 @@ const ver = f => require('crypto').createHash('md5').update(fs.readFileSync(path
 const absUrl = u => (u.startsWith('http://') || u.startsWith('https://') ? u : SITE + u);
 const esc = s => String(s).replace(/&(?!(?:[a-z]+|#\d+);)/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
+// Responsive photos: where an 800px "-800.webp" copy exists, offer it to phones and smaller screens.
+const webpWidth = f => { const x = fs.readFileSync(f); const t = x.toString('ascii', 12, 16);
+  return t === 'VP8X' ? 1 + x.readUIntLE(24, 3) : t === 'VP8L' ? (x.readUInt32LE(21) & 0x3fff) + 1 : x.readUInt16LE(26) & 0x3fff; };
+const withSrcset = html => html.replace(/<img ([^>]*?)src="(assets\/images\/[^"]+)\.webp"([^>]*)>/g, (m, pre, base, post) => {
+  const small = base + '-800.webp';
+  if (/srcset=/.test(m) || !fs.existsSync(path.join(PUB, small))) return m;
+  return '<img ' + pre + 'src="' + base + '.webp" srcset="' + small + ' 800w, ' + base + '.webp ' + webpWidth(path.join(PUB, base + '.webp')) + 'w" sizes="(max-width: 760px) 100vw, 600px"' + post + '>';
+});
+
 // ---------- shared partials ----------
 
 const NAV = [
@@ -142,7 +151,7 @@ ${scripts.map(s => `  <script src="${s}?v=${ver(s)}"></script>`).join('\n')}
 </body>
 </html>
 `;
-  fs.writeFileSync(path.join(PUB, file), html);
+  fs.writeFileSync(path.join(PUB, file), withSrcset(html));
   return file;
 }
 
@@ -753,7 +762,7 @@ built.push(page({
 }));
 {
   const f = path.join(PUB, '404.html');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(/(\s(?:href|src)=")(?!https?:|mailto:|tel:|data:|#|\/)/g, '$1/'));
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(/(\s(?:href|src)=")(?!https?:|mailto:|tel:|data:|#|\/)/g, '$1/').replace(/srcset="([^"]+)"/g, (m, v) => 'srcset="' + v.split(', ').map(s => s.startsWith('/') ? s : '/' + s).join(', ') + '"'));
 }
 
 console.log('Built ' + built.length + ' pages:\n' + built.join('\n'));

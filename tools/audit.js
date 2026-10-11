@@ -30,6 +30,7 @@ for (const f of pages) {
   if (!/name="description" content="[^"]{50,}"/.test(s)) p('missing/short description');
   const seen = {}; for (const m of s.matchAll(/\sid="([^"]+)"/g)) { if (seen[m[1]]) p('duplicate id ' + m[1]); seen[m[1]] = 1; }
   for (const m of s.matchAll(/<img\b[^>]*>/g)) if (!/\salt="/.test(m[0])) p('img without alt: ' + m[0].slice(0, 80));
+  for (const m of s.matchAll(/srcset="([^"]+)"/g)) for (const c of m[1].split(',')) { const u = c.trim().split(' ')[0].replace(/^\//, ''); if (!/^https?:/.test(u) && !fs.existsSync(path.join(PUB, u))) p('missing srcset candidate ' + u); }
   for (const m of s.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
     const u = m[1];
     if (/^(https?:|mailto:|tel:|data:)/.test(u)) continue;
