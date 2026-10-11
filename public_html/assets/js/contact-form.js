@@ -33,8 +33,22 @@
     button.textContent = 'Sending…';
     show('', '');
 
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-      .then(function (r) { return r.json(); })
+    // The host's anti-bot check answers the first request with a script that sets a cookie and reloads.
+    // A page reload would lose the form, so set that cookie here and send once more.
+    function send(retry) {
+      return fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, credentials: 'same-origin' })
+        .then(function (r) {
+          var type = r.headers.get('content-type') || '';
+          if (type.indexOf('json') !== -1) return r.json();
+          return r.text().then(function (t) {
+            var m = t.match(/document\.cookie\s*=\s*"([^"]+)"/);
+            if (!retry && m) { document.cookie = m[1] + '; path=/; SameSite=Lax'; return send(true); }
+            throw new Error('unexpected response');
+          });
+        });
+    }
+
+    send(false)
       .then(function (res) {
         if (!res.ok) throw new Error(res.error || 'send failed');
         form.reset();
