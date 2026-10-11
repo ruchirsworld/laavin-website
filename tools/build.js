@@ -479,7 +479,7 @@ ${proofStrip}
             <div class="feature-item"><h3>We plan for survival</h3><p>Species are chosen for the site's soil, sun, wind and water, and aftercare is part of the scope, not an extra.</p></div>
             <div class="feature-item"><h3>We plan the water first</h3><p>Drip and sprinkler irrigation is designed with the planting, so gardens stay green on less water and less labour.</p></div>
             <div class="feature-item"><h3>We engineer what is underneath</h3><p>Waterproofing, drainage and load on terraces, and paving and wiring on the ground, are checked by an engineer before planting starts.</p></div>
-            <div class="feature-item"><h3>We stay after handover</h3><p>Scheduled maintenance and survival tracking keep the landscape you paid for alive next year and the year after.</p></div>
+            <div class="feature-item"><h3>We stay after handover</h3><p>Scheduled maintenance, monthly photo reports and written replacement terms keep the landscape you paid for alive next year and the year after.</p></div>
           </div>
         </div>
         <div class="about-photo"><img src="assets/images/about/about-6.webp" alt="Landscaped courtyard with water channel and palms" width="1200" height="900" loading="lazy"><div class="about-note">Aftercare is part<br>of the scope.</div></div>
@@ -728,5 +728,32 @@ built.push(page({
       </div>
     </section>`,
 }));
+
+// 404: shown by the server for any missing URL, so every link and asset path is made root-relative (/...).
+built.push(page({
+  file: '404.html', active: '', noindex: true,
+  title: 'Page Not Found | Laavin Infrascapes',
+  description: 'The page you were looking for has moved or does not exist. Find our services, projects and contact details here.',
+  body: `    <section class="page-hero"><div class="container">
+          <p class="eyebrow">Page not found</p>
+          <h1>This page has moved, <em>or never took root.</em></h1>
+          <p class="lead">The link may be old or mistyped. These are the pages most people are looking for.</p>
+          <div class="hero-actions"><a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a><a class="btn btn-outline" href="index.html">Go to the homepage</a></div>
+    </div></section>
+
+    <section class="detail">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-card"><h2>Services</h2><p>Landscaping, irrigation, hardscaping and tree transplantation. <a href="services.html">See all services</a></p></div>
+          <div class="info-card"><h2>Projects</h2><p>Highway, railway, airport, school and landfill work we have delivered. <a href="index.html#projects">See our projects</a></p></div>
+          <div class="info-card"><h2>Insights</h2><p>Practical guides on planting, irrigation and keeping a landscape alive. <a href="blog.html">Read the guides</a></p></div>
+        </div>
+      </div>
+    </section>`,
+}));
+{
+  const f = path.join(PUB, '404.html');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(/(\s(?:href|src)=")(?!https?:|mailto:|tel:|data:|#|\/)/g, '$1/'));
+}
 
 console.log('Built ' + built.length + ' pages:\n' + built.join('\n'));

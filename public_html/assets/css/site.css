@@ -685,12 +685,12 @@ label{font-size:13px}.nav-links{font-size:15px}.btn{font-size:15px;min-height:48
 @media(max-width:760px){
   /* contact page: one card of quick contacts, call first */
   .info-grid{gap:0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .info-grid .info-card{display:grid;grid-template-columns:40px 1fr;column-gap:14px;align-items:center;border:0;border-radius:0;border-bottom:1px solid var(--line);padding:14px 16px}
-  .info-grid .info-card:last-child{order:-1}
-  .info-grid .info-card:nth-child(2){border-bottom:0}
-  .info-grid .info-card .proof-icon{grid-row:1/3;margin:0;width:40px;height:40px}
-  .info-grid .info-card h2{margin:0 0 2px;font-size:14px}
-  .info-grid .info-card p{font-size:15px;line-height:1.5}
+  .info-grid:has(.proof-icon) .info-card{display:grid;grid-template-columns:40px 1fr;column-gap:14px;align-items:center;border:0;border-radius:0;border-bottom:1px solid var(--line);padding:14px 16px}
+  .info-grid:has(.proof-icon) .info-card:last-child{order:-1}
+  .info-grid:has(.proof-icon) .info-card:nth-child(2){border-bottom:0}
+  .info-grid:has(.proof-icon) .info-card .proof-icon{grid-row:1/3;margin:0;width:40px;height:40px}
+  .info-grid:has(.proof-icon) .info-card h2{margin:0 0 2px;font-size:14px}
+  .info-grid:has(.proof-icon) .info-card p{font-size:15px;line-height:1.5}
   /* form before map */
   .contact-grid:has(.map-frame){gap:0}
   .contact-grid:has(.map-frame) .contact-copy{display:contents}
@@ -711,3 +711,4 @@ label{font-size:13px}.nav-links{font-size:15px}.btn{font-size:15px;min-height:48
   .insights h2.sr-only+.post-grid>.post-card:not(:first-child) h3{font-size:16px}
 }
 .section-head p.eyebrow,.about-copy>p.eyebrow,.credential-panel p.eyebrow,.contact-copy p.eyebrow,.process-side p.eyebrow,.prose-cols p.eyebrow{font-size:12px;line-height:1.6;color:var(--forest-2);margin:0 0 20px;max-width:none}
+@media(max-width:760px){.info-grid:not(:has(.proof-icon)) .info-card{border:0;border-radius:0;border-bottom:1px solid var(--line);padding:16px 18px}.info-grid:not(:has(.proof-icon)) .info-card:last-child{border-bottom:0}.info-grid:not(:has(.proof-icon)) .info-card h2{margin-bottom:4px}}

@@ -34,7 +34,7 @@ for (const f of pages) {
     const u = m[1];
     if (/^(https?:|mailto:|tel:|data:)/.test(u)) continue;
     const [file0, hash] = u.split('#');
-    const file = file0.split('?')[0];
+    const file = file0.split('?')[0].replace(/^\//, '');
     const target = file === '' ? f : file;
     if (file && !fs.existsSync(path.join(PUB, decodeURIComponent(file)))) { p('missing file ' + u); continue; }
     if (hash && target.endsWith('.html') && !(ids[target] || new Set()).has(hash)) p('missing anchor ' + u);
