@@ -308,7 +308,7 @@ const proofStrip = `    <div class="proof">
       <div class="container proof-grid">
         <div class="proof-item"><div class="proof-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3l3.2 2.4 4-.3 1.3 3.8 3.4 2.2-1.2 3.9 1.2 3.9-3.4 2.2-1.3 3.8-4-.3L16 27l-3.2-2.4-4 .3-1.3-3.8-3.4-2.2 1.2-3.9-1.2-3.9 3.4-2.2 1.3-3.8 4 .3Z"/><path d="M11 15.5l3.5 3.5L21 12.5"/></svg></div><div><strong>75+</strong><span>Projects completed</span></div></div>
         <div class="proof-item"><div class="proof-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 29V17M16 17l-4-3M16 20l4-3M16 3c-6 0-9 5-9 9 0 4 3 7 9 7s9-3 9-7c0-4-3-9-9-9ZM10 29h12"/></svg></div><div><strong>350+</strong><span>Trees transplanted</span></div></div>
-        <div class="proof-item"><div class="proof-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 25C7 13 15 6 26 6c0 11-7 19-19 19ZM7 25l10-10"/></svg></div><div><strong>100</strong><span>Tonnes of carbon sequestered</span></div></div>
+        <div class="proof-item"><div class="proof-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 25C7 13 15 6 26 6c0 11-7 19-19 19ZM7 25l10-10"/></svg></div><div><strong>100T+</strong><span>Carbon sequestered</span></div></div>
         <div class="proof-item"><div class="proof-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4a12 12 0 1 0 0 24 12 12 0 0 0 0-24ZM16 9v7l5 3"/></svg></div><div><strong>10+</strong><span>Years of experience</span></div></div>
       </div>
     </div>`;
