@@ -12,6 +12,8 @@ const WA = '919811511558';
 const EMAIL = 'connect@laavinfra.com';
 const ADDRESS = 'B-328 (Ground Floor), New Ashok Nagar, Delhi 110096';
 const articles = require('./content/articles.json');
+// Short content hash appended to CSS/JS URLs, so browsers can cache them for a year and still get updates.
+const ver = f => require('crypto').createHash('md5').update(fs.readFileSync(path.join(PUB, f))).digest('hex').slice(0, 8);
 
 // Image paths may be local (assets/...) or full URLs.
 const absUrl = u => (u.startsWith('http://') || u.startsWith('https://') ? u : SITE + u);
@@ -126,7 +128,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<meta name="theme-co
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/images/favicon.png" type="image/png">
 <link rel="preload" href="assets/fonts/inter/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=${ver('assets/css/site.css')}">
 ${ld}
 </head>
 <body>
@@ -135,8 +137,8 @@ ${ld}
 ${body}
   </main>
   ${footer()}
-  <script src="assets/js/site.js"></script>
-${scripts.map(s => `  <script src="${s}"></script>`).join('\n')}
+  <script src="assets/js/site.js?v=${ver('assets/js/site.js')}"></script>
+${scripts.map(s => `  <script src="${s}?v=${ver(s)}"></script>`).join('\n')}
 </body>
 </html>
 `;
@@ -329,8 +331,8 @@ ${logos ? clientsBlock() + '\n' : ''}      </div>
 // Home
 built.push(page({
   file: 'index.html', active: 'home',
-  title: 'Landscaping, Terrace Gardens &amp; Irrigation for Hotels, Offices and Farmhouses | Laavin Infrascapes',
-  description: 'Landscaping, tree transplantation and irrigation in Delhi NCR for offices, hotels, builders, societies and homes. Empanelled with NHAI, DDA and Indian Railways.',
+  title: 'Landscaping &amp; Tree Transplantation, Delhi NCR | Laavin',
+  description: 'Landscaping, tree transplantation and irrigation across Delhi NCR for builders, offices, hotels and homes. Empanelled with NHAI, DDA and Indian Railways.',
   schema: [ORG_SCHEMA],
   scripts: ['assets/js/contact-form.js'],
   body: `    <section class="hero">
@@ -417,7 +419,7 @@ ${credentialsSection(false)}
           <div class="section-side"><a class="text-link" href="blog.html">All insights <span>→</span></a></div>
         </div>
         <div class="post-grid">
-${['terrace-garden-waterproofing-guide', 'farmhouse-garden-planning-delhi', 'office-landscaping-guide'].map(s => postCard(articles.find(a => a.slug === s))).join('\n')}
+${['office-landscaping-guide', 'tree-transplantation-highway-projects', 'drip-irrigation-large-campuses'].map(s => postCard(articles.find(a => a.slug === s))).join('\n')}
         </div>
       </div>
     </section>
@@ -436,8 +438,8 @@ ${enquiryForm()}
 const aboutTrail = [['Home', 'index.html'], ['About us']];
 built.push(page({
   file: 'about.html', active: 'about',
-  title: 'About Laavin Infrascapes | Landscaping, Terrace Gardens &amp; Irrigation, Delhi',
-  description: 'Delhi-based landscaping and horticulture team (formerly EGW Services) for terrace gardens, hotels, offices, farmhouses and irrigation, led by a botanist and a retired DDA engineer.',
+  title: 'About Us: Botanist &amp; Engineer Led | Laavin Infrascapes',
+  description: 'Delhi NCR landscaping team led by a botanist and a retired DDA engineer, formerly EGW Services. Empanelled with NHAI, DDA and Indian Railways.',
   schema: [ORG_SCHEMA, breadcrumbSchema(aboutTrail)],
   body: `${pageHero({ trail: aboutTrail, eyebrow: 'About us', h1: 'A landscaping team built around <em>plants that survive.</em>', lead: `A Delhi-based team that designs, builds and maintains terrace gardens and landscapes for hotels, offices and farmhouses, with irrigation planned in from the start.`, photo: { src: 'assets/images/about/about-2.webp', alt: 'Our team reviewing a landscape plan on site' } })}
 
@@ -495,8 +497,8 @@ ${ctaBand('Have a site to discuss?', 'Send us your site location, drawings or a 
 const servicesTrail = [['Home', 'index.html'], ['Services']];
 built.push(page({
   file: 'services.html', active: 'services',
-  title: 'Landscaping, Terrace Gardens, Irrigation &amp; Hardscaping Services | Laavin Infrascapes',
-  description: 'Terrace and rooftop gardens, hotel, office and farmhouse landscaping, drip and sprinkler irrigation, hardscaping and tree transplantation from one accountable team in Delhi NCR.',
+  title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
+  description: 'Landscaping, terrace and vertical gardens, drip irrigation, hardscaping and tree transplantation from one accountable team in Delhi NCR.',
   schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
   body: `${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain, so you deal with one accountable team.' })}
 
@@ -522,7 +524,7 @@ ${ctaBand('Planning a garden, terrace or landscape?', 'Send us the site location
 // Service detail pages
 const SERVICES = [
   { key: 'landscaping', file: 'landscaping-services.html', short: 'Landscape Services',
-    title: 'Terrace, Balcony &amp; Vertical Gardens, Hotel, Office and Farmhouse Landscaping | Laavin Infrascapes',
+    title: 'Terrace, Hotel &amp; Office Landscaping | Laavin Infrascapes',
     description: 'Terrace, balcony and vertical gardens, hotel and resort landscaping, office premises, farmhouse gardens, sports turf and landscape maintenance in Delhi NCR.',
     eyebrow: 'Landscape services', h1: 'Landscapes for terraces, balconies, hotels, offices <em>and farmhouses.</em>',
     lead: 'Whether it is a rooftop, a hotel arrival court, an office campus or a farmhouse estate, we design landscapes that look good on opening day and still look good five years on.',
@@ -543,7 +545,7 @@ const SERVICES = [
     cta: ['Planning a terrace, garden or landscape?', 'Share your site plan, location or a few photos. Our landscape designer will suggest an approach and prepare an estimate.', 'Book a Site Visit'],
     side: ['Planning a landscape?', 'Get a design and build estimate from our team.'] },
   { key: 'hardscaping', file: 'hardscaping-service.html', short: 'Hardscaping Services',
-    title: 'Hardscaping: Water Features, Paving &amp; Landscape Lighting | Laavin Infrascapes',
+    title: 'Water Features, Paving &amp; Lighting | Laavin Infrascapes',
     description: 'Water features, stone paving, landscape lighting, fencing, pergolas and gazebos for hotels, offices and farmhouses, overseen by a former DDA engineer.',
     eyebrow: 'Hardscaping services', h1: 'Built elements that last as long as <em>the landscape.</em>',
     lead: 'Paths, water features, lighting and shade structures for hotels, offices and farmhouses, built for heavy footfall, harsh summers and the monsoon.',
@@ -561,8 +563,8 @@ const SERVICES = [
     cta: ['Have drawings or a layout ready?', 'Send them over. Our engineer will review the hardscape scope and prepare a detailed, itemised estimate.', 'Book a Site Visit'],
     side: ['Planning site works?', 'Talk to us about paving, water features and lighting.'] },
   { key: 'horticulture', file: 'horticulture-service.html', short: 'Irrigation & Horticulture',
-    title: 'Drip Irrigation, Tree Transplantation &amp; Horticulture Services | Laavin Infrascapes',
-    description: 'Drip and sprinkler irrigation for gardens, farmhouses and campuses, plus mature tree transplantation, highway and green belt plantation. NH-307, NH-7 and Delhi Airport projects delivered.',
+    title: 'Drip Irrigation &amp; Tree Transplantation | Laavin Infrascapes',
+    description: 'Drip and sprinkler irrigation, mature tree transplantation and green belt plantation, with NH-307, NH-7 and Delhi Airport projects delivered.',
     eyebrow: 'Irrigation and horticulture', h1: 'Irrigation and horticulture for <em>sites of every size.</em>',
     lead: 'From drip lines on a farmhouse lawn to mature tree transplantation on a national highway, our horticulture team plans the living part of every project.',
     photo: { src: 'assets/images/horti.webp', alt: 'Plant nursery with misting irrigation system' },
@@ -616,7 +618,7 @@ ${processSection('')}`,
 const blogTrail = [['Home', 'index.html'], ['Insights']];
 built.push(page({
   file: 'blog.html', active: 'blog',
-  title: 'Landscaping, Irrigation &amp; Garden Insights | Laavin Infrascapes',
+  title: 'Landscaping &amp; Irrigation Insights | Laavin Infrascapes',
   description: 'Practical guides on landscaping, irrigation, tree transplantation and green spaces that last, from the Laavin Infrascapes team.',
   schema: [breadcrumbSchema(blogTrail)],
   body: `${pageHero({ trail: blogTrail, eyebrow: 'Insights', h1: 'Practical guides for <em>gardens that last.</em>' })}
@@ -625,7 +627,7 @@ built.push(page({
       <div class="container">
         <h2 class="sr-only">All articles</h2>
         <div class="post-grid">
-${articles.map(postCard).join('\n')}
+${articles.filter(a => !a.draft).map(postCard).join('\n')}
         </div>
       </div>
     </section>
@@ -636,7 +638,7 @@ ${ctaBand('Have a question about your site?', 'Our horticulturist and engineer a
 // Articles
 for (const a of articles) {
   const trail = [['Home', 'index.html'], ['Insights', 'blog.html'], [a.category]];
-  const others = articles.filter(o => o.slug !== a.slug);
+  const others = articles.filter(o => o.slug !== a.slug && !o.draft);
   built.push(page({
     file: a.slug + '.html', active: 'blog', title: a.metaTitle, description: a.description, ogType: 'article', noindex: !!a.draft,
     ogImage: a.image,
@@ -677,7 +679,7 @@ const contactTrail = [['Home', 'index.html'], ['Contact']];
 built.push(page({
   file: 'contact.html', active: 'contact',
   title: 'Contact Laavin Infrascapes | Book a Site Visit',
-  description: 'Request a proposal for a terrace garden, hotel, office or farmhouse landscape, irrigation or hardscaping. Call or WhatsApp +91 98115 11558, or send your site details for a reply within 24 hours.',
+  description: 'Book a site visit for a garden, terrace, landscape, irrigation or hardscape project. Call or WhatsApp +91 98115 11558 for a reply within 24 hours.',
   schema: [ORG_SCHEMA, breadcrumbSchema(contactTrail)],
   scripts: ['assets/js/contact-form.js'],
   body: `${pageHero({ trail: contactTrail, eyebrow: 'Get in touch', h1: 'Tell us about <em>your site.</em>', lead: 'Share a few details about your terrace, garden or property and our team will reply within 24 hours with ideas, feasibility advice and an estimate. For anything urgent, call or WhatsApp us.' })}

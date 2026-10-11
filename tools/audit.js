@@ -4,6 +4,7 @@ const path = require('path');
 const PUB = path.join(__dirname, '..', 'public_html');
 const pages = fs.readdirSync(PUB).filter(f => f.endsWith('.html') && !/^google[0-9a-f]+\.html$/.test(f)); // skip Search Console verification files
 const problems = [];
+const drafts = require('./content/articles.json').filter(a => a.draft).map(a => a.slug + '.html');
 const ids = {};
 for (const f of pages) {
   const s = fs.readFileSync(path.join(PUB, f), 'utf8');
@@ -16,6 +17,11 @@ for (const f of pages) {
   if (f === 'blog-details.html') continue; // redirect stub
   const h1 = (s.match(/<h1[\s>]/g) || []).length; if (h1 !== 1) p(h1 + ' h1 tags');
   if (!/<title>[^<]+<\/title>/.test(s)) p('missing title');
+  const tl = ((s.match(/<title>([^<]*)<\/title>/) || [])[1] || '').replace(/&amp;/g, '&');
+  if (tl.length > 60) p('title over 60 characters (' + tl.length + ')');
+  const dl = ((s.match(/name="description" content="([^"]*)"/) || [])[1] || '').replace(/&amp;/g, '&');
+  if (dl.length > 160) p('description over 160 characters (' + dl.length + ')');
+  if (!/noindex/.test(s)) for (const d of drafts) if (s.includes('href="' + d + '"')) p('links to draft ' + d);
   const markup = s.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/g, '');
   for (const t of ['div', 'section', 'article', 'ul', 'nav', 'main']) {
     const open = (markup.match(new RegExp('<' + t + '[\\s>]', 'g')) || []).length, close = (markup.match(new RegExp('</' + t + '>', 'g')) || []).length;
@@ -27,7 +33,8 @@ for (const f of pages) {
   for (const m of s.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
     const u = m[1];
     if (/^(https?:|mailto:|tel:|data:)/.test(u)) continue;
-    const [file, hash] = u.split('#');
+    const [file0, hash] = u.split('#');
+    const file = file0.split('?')[0];
     const target = file === '' ? f : file;
     if (file && !fs.existsSync(path.join(PUB, decodeURIComponent(file)))) { p('missing file ' + u); continue; }
     if (hash && target.endsWith('.html') && !(ids[target] || new Set()).has(hash)) p('missing anchor ' + u);
