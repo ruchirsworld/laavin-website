@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /blog/
+Disallow: /Version/
+Disallow: /Website%20images/
+
+Sitemap: https://laavinfra.com/sitemap.xml

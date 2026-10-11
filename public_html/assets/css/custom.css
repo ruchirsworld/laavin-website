@@ -272,3 +272,195 @@
   outline: none;
   cursor: pointer;
 }
+
+/* Hero slides 2-3: styled like the H1 but only one real H1 per page (SEO) */
+.hero-content h2.hero-title {
+  margin-bottom: 7px;
+  font-size: 43px;
+  line-height: 1.12;
+  color: #ffffff;
+}
+@media (max-width: 767px) {
+  .hero-content h2.hero-title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+}
+
+/* Enquiry form: spam honeypot and result message */
+.contact-form .form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.contact-form .form-status:empty {
+  display: none;
+}
+.contact-form .form-status {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.contact-form .form-status.success {
+  background: #e8f3ee;
+  color: #0B3D2C;
+  border: 1px solid #a8d5ba;
+}
+.contact-form .form-status.error {
+  background: #fdf3e6;
+  color: #6b4511;
+  border: 1px solid #E3A857;
+}
+.contact-form .form-status a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* About page: team cards */
+.team-card {
+  height: 100%;
+  padding: 28px 22px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+.team-card .team-initials {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #0B3D2C;
+  color: #E3A857;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 72px;
+}
+.team-card h4 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.team-card .team-role {
+  color: #2A7D2E;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.team-card p:last-child {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Contact form reassurance line under the submit button */
+.contact-form .form-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Contact page: the template pulls the form up over the map, which covers the section heading. Keep map and form side by side. */
+.contact-wrapper .contact-form-wrapper {
+  min-width: 0;
+  margin-top: 0;
+  -webkit-margin-start: 0;
+  margin-inline-start: 0;
+}
+.contact-wrapper .map-box {
+  min-width: 0;
+}
+
+/* Blog: article links, upcoming (unpublished) topics, project proof widget */
+.single-blog-post .read-article,
+.project-proof-widget .read-article {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-weight: 600;
+  color: #2A7D2E;
+}
+.single-blog-post .post-thumbnail {
+  position: relative;
+}
+.single-blog-post.is-upcoming .post-thumbnail img {
+  filter: saturate(0.6);
+  opacity: 0.85;
+}
+.single-blog-post .soon-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #0B3D2C;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.project-proof-widget {
+  padding: 30px;
+  border-radius: 12px;
+  background: #0B3D2C;
+  color: #d1e7dd;
+}
+.project-proof-widget .widget-title {
+  color: #ffffff;
+}
+.project-proof-widget .proof-figure {
+  margin-bottom: 4px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #E3A857;
+}
+.project-proof-widget .read-article {
+  color: #E3A857;
+}
+
+/* Blog articles: lists and the "More Articles" sidebar */
+.entry-content .article-list {
+  margin: 0 0 20px 22px;
+  padding: 0;
+}
+.entry-content ul.article-list {
+  list-style: disc;
+}
+.entry-content ol.article-list {
+  list-style: decimal;
+}
+.entry-content .article-list li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+.entry-content a:not(.main-btn) {
+  color: #2A7D2E;
+  text-decoration: underline;
+}
+.more-articles-widget {
+  padding: 30px;
+  border-radius: 12px;
+}
+.more-articles-widget ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 1.4;
+}
+.more-articles-widget ul li:last-child {
+  border-bottom: 0;
+}
+.more-articles-widget ul li a {
+  font-weight: 600;
+  color: #0B3D2C;
+}
+.more-articles-widget ul li a:hover {
+  color: #2A7D2E;
+}
