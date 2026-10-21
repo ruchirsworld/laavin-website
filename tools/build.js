@@ -32,9 +32,10 @@ const withSrcset = html => html.replace(/<img ([^>]*?)src="(assets\/images\/[^"]
 
 const NAV = [
   { key: 'services', href: 'services.html', label: 'Services', children: [
-    { key: 'landscaping', href: 'landscaping-services.html', label: 'Landscape Services' },
+    { key: 'landscaping', href: 'landscaping-services.html', label: 'Landscaping Services' },
+    { key: 'horticulture', href: 'horticulture-service.html', label: 'Horticultural Services' },
     { key: 'hardscaping', href: 'hardscaping-service.html', label: 'Hardscaping Services' },
-    { key: 'horticulture', href: 'horticulture-service.html', label: 'Irrigation & Horticulture' },
+    { key: 'irrigation', href: 'irrigation-services.html', label: 'Irrigation Services' },
   ] },
   { key: 'about', href: 'about.html', label: 'About' },
   { key: 'projects', href: 'projects.html', label: 'Projects' },
@@ -83,7 +84,7 @@ function footer() {
         </div>
         <div class="footer-col">
           <h2>Services</h2>
-          <ul><li><a href="landscaping-services.html">Landscape Services</a></li><li><a href="hardscaping-service.html">Hardscaping Services</a></li><li><a href="horticulture-service.html">Irrigation &amp; Horticulture</a></li><li><a href="services.html">All services</a></li></ul>
+          <ul><li><a href="landscaping-services.html">Landscaping Services</a></li><li><a href="horticulture-service.html">Horticultural Services</a></li><li><a href="hardscaping-service.html">Hardscaping Services</a></li><li><a href="irrigation-services.html">Irrigation Services</a></li><li><a href="services.html">All services</a></li></ul>
         </div>
         <div class="footer-col">
           <h2>Get in touch</h2>
@@ -384,7 +385,7 @@ ${proofStrip}
           <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 28V6h14v22M20 12h6v16M3 28h26M10 10h2M14 10h2M10 15h2M14 15h2M10 20h2M14 20h2M23 17h1M23 22h1"/></svg></span><h3>Office &amp; Corporate Premises</h3></div><p>Green that never lands on your desk as a problem.</p><ul class="mini-list"><li>Design, planting and scheduled care</li><li>Monthly photo reports you can forward</li><li>Direct, or under your FM partner</li></ul><a class="text-link" href="landscaping-services.html">Office landscaping <span>→</span></a></article>
           <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 23h22M7 23a9 9 0 0 1 18 0M16 14v-2M14 12h4M4 27h24"/></svg></span><h3>Hotel &amp; Resort Landscaping</h3></div><p>Lawns ready for the season, upkeep your guests never notice.</p><ul class="mini-list"><li>Event lawns prepared before October</li><li>Arrival courts and poolside planting</li><li>Water features and evening lighting</li></ul><a class="text-link" href="landscaping-services.html">Hotel landscaping <span>→</span></a></article>
           <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 29V17M16 17l-4-3M16 20l4-3M16 3c-6 0-9 5-9 9 0 4 3 7 9 7s9-3 9-7c0-4-3-9-9-9ZM10 29h12"/></svg></span><h3>Tree Transplantation &amp; Green Belts</h3></div><p>Trees moved to survive, documented to pass inspection.</p><ul class="mini-list"><li>155 trees moved for NHAI on NH&#8209;307</li><li>Survival assessed before work begins</li><li>Monthly photo reports for your file</li></ul><a class="text-link" href="horticulture-service.html">Tree transplantation <span>→</span></a></article>
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15ZM12 20a4 4 0 0 0 4 4"/></svg></span><h3>Drip &amp; Sprinkler Irrigation</h3></div><p>Water by measure, not by guesswork.</p><ul class="mini-list"><li>Drip for beds, sprinklers for lawns</li><li>Filters for borewell or STP water</li><li>Zoned, automated timers</li></ul><a class="text-link" href="horticulture-service.html">Irrigation services <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15ZM12 20a4 4 0 0 0 4 4"/></svg></span><h3>Drip &amp; Sprinkler Irrigation</h3></div><p>Water by measure, not by guesswork.</p><ul class="mini-list"><li>Drip for beds, sprinklers for lawns</li><li>Filters for borewell or STP water</li><li>Zoned, automated timers</li></ul><a class="text-link" href="irrigation-services.html">Irrigation services <span>→</span></a></article>
           <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 16 13 8l9 8M6 14v13h14V14M11 27v-6h4v6M25 27v-7M25 20c-3 0-4-3-4-5 0-3 2-5 4-6 2 1 4 3 4 6 0 2-1 5-4 5Z"/></svg></span><h3>Farmhouse Landscaping</h3></div><p>Your farmhouse, green and ready whenever you arrive.</p><ul class="mini-list"><li>Plants for NCR heat and Aravalli soils</li><li>Photo updates on WhatsApp</li><li>Lawns, orchards and driveways</li></ul><a class="text-link" href="landscaping-services.html">Farmhouse landscaping <span>→</span></a></article>
           <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 28V12h20v16M4 28h24M10 16h3v3h-3zM19 16h3v3h-3zM10 22h3v3h-3zM19 22h3v3h-3zM12 12c0-3 2-5 4-6 2 1 4 3 4 6M16 6V3"/></svg></span><h3>Terrace, Balcony &amp; Vertical Gardens</h3></div><p>A terrace garden that protects the roof beneath it.</p><ul class="mini-list"><li>Load and waterproofing checked first</li><li>Lightweight soil, drip on a timer</li><li>Self-draining pots, no standing water</li></ul><a class="text-link" href="landscaping-services.html">Terrace gardens <span>→</span></a></article>
         </div>
@@ -519,37 +520,11 @@ ${processSection('One accountable team for all four steps. Every step is documen
 ${ctaBand('Have a site to discuss?', 'Send us your site location, drawings or a few photos. We will come back within 24 hours with ideas and an estimate.', 'Book a Site Visit')}`,
 }));
 
-// Services overview
-const servicesTrail = [['Home', 'index.html'], ['Services']];
-built.push(page({
-  file: 'services.html', active: 'services',
-  title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
-  description: 'Landscaping, terrace and vertical gardens, drip irrigation, hardscaping and tree transplantation from one accountable team in Delhi NCR.',
-  schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
-  body: `${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain, so you deal with one accountable team.' })}
-
-    <section class="services">
-      <div class="container">
-        <div class="section-head">
-          <div><p class="eyebrow">Our services</p><h2>Three service lines,<br>one team.</h2></div>
-          <p>Pick the service closest to your scope. Many projects combine two or three, all delivered by the same team.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card has-photo"><div class="card-photo"><img src="assets/images/land.webp" alt="Landscaped grounds with lawns, palms and walkways" width="900" height="560" loading="lazy"></div><div class="card-body"><div class="service-num">01 / LANDSCAPE</div><h3>Landscape Services</h3><p>Design, planting and maintenance for terraces, hotels, offices and farmhouses.</p><ul class="mini-list"><li>Terrace, balcony &amp; vertical gardens</li><li>Hotel, office &amp; farmhouse landscaping</li><li>Lawns, planting &amp; maintenance</li></ul><a class="text-link" href="landscaping-services.html">Explore landscape services <span>→</span></a></div></article>
-          <article class="service-card has-photo"><div class="card-photo"><img src="assets/images/horti.webp" alt="Plant nursery with misting irrigation system" width="900" height="560" loading="lazy"></div><div class="card-body"><div class="service-num">02 / IRRIGATION</div><h3>Irrigation &amp; Horticulture</h3><p>Automated watering for gardens of any size, plus tree transplantation and large-scale planting.</p><ul class="mini-list"><li>Drip &amp; sprinkler irrigation</li><li>Mature tree transplantation</li><li>Green belts &amp; avenue planting</li></ul><a class="text-link" href="horticulture-service.html">Explore irrigation and horticulture <span>→</span></a></div></article>
-          <article class="service-card has-photo"><div class="card-photo"><img src="assets/images/hardscaping.webp" alt="Stone-paved courtyard with pergola and path lighting" width="900" height="560" loading="lazy"></div><div class="card-body"><div class="service-num">03 / HARDSCAPE</div><h3>Hardscaping Services</h3><p>Water features, paving, lighting and shade structures, engineered for heavy use.</p><ul class="mini-list"><li>Fountains &amp; water features</li><li>Pathways &amp; stone paving</li><li>Pergolas, gazebos &amp; lighting</li></ul><a class="text-link" href="hardscaping-service.html">Explore hardscaping services <span>→</span></a></div></article>
-        </div>
-      </div>
-    </section>
-
-${processSection('Whichever service you need, the same four steps apply, run by the same accountable team.')}
-
-${ctaBand('Planning a garden, terrace or landscape?', 'Send us the site location and what you have in mind. We will come back within 24 hours with ideas and an estimate.', 'Book a Site Visit')}`,
-}));
-
 // Service detail pages
 const SERVICES = [
-  { key: 'landscaping', file: 'landscaping-services.html', short: 'Landscape Services',
+  { key: 'landscaping', file: 'landscaping-services.html', short: 'Landscaping Services', name: 'Landscaping',
+    line: 'Design, planting and maintenance for terraces, hotels, offices and farmhouses.',
+    proof: 'Cricket ground and running track, Angels Public School',
     title: 'Terrace, Hotel &amp; Office Landscaping | Laavin Infrascapes',
     description: 'Terrace, balcony and vertical gardens, hotel and resort landscaping, office premises, farmhouse gardens, sports turf and landscape maintenance in Delhi NCR.',
     eyebrow: 'Landscape services', h1: 'Landscapes for terraces, balconies, hotels, offices <em>and farmhouses.</em>',
@@ -570,7 +545,27 @@ const SERVICES = [
     listTitle: 'Nine landscape services, one accountable team.',
     cta: ['Planning a terrace, garden or landscape?', 'Share your site plan, location or a few photos. Our landscape designer will suggest an approach and prepare an estimate.', 'Book a Site Visit'],
     side: ['Planning a landscape?', 'Get a design and build estimate from our team.'] },
-  { key: 'hardscaping', file: 'hardscaping-service.html', short: 'Hardscaping Services',
+  { key: 'horticulture', file: 'horticulture-service.html', short: 'Horticultural Services', name: 'Horticultural',
+    line: 'Tree transplantation and large-scale planting for highways, railways and industry.',
+    proof: '155 mature trees moved on NH&#8209;307 for NHAI',
+    title: 'Tree Transplantation &amp; Green Belts | Laavin Infrascapes',
+    description: 'Mature tree transplantation, median and avenue plantation, green belts and slope turfing, with NHAI, Indian Railways and Delhi Airport projects delivered.',
+    eyebrow: 'Horticultural services', h1: 'Trees and planting for <em>sites of every size.</em>',
+    lead: 'From mature tree transplantation on a national highway to green belts around industrial sites, our horticulture team plans the living part of every project.',
+    photo: { src: 'assets/images/blog/blog-1.webp', alt: 'A large mature tree with a wide, spreading canopy' },
+    intro: 'Our horticulture team is led by a botanist with 30+ years of field experience. Species, soil treatment and watering are planned for each site.',
+    items: [
+      ['Mature tree transplantation', 'When construction puts mature trees in the way, we move them instead of felling them. We survey and prune each tree, dig and protect the root ball, lift and transport it, replant it at the new site, and stay on for watering and feeding.', 'On NH-307 we relocated 155 mature roadside trees for an NHAI widening project.'],
+      ['Highway median and avenue plantation', 'Hardy, pollution-tolerant shrubs and trees for medians, roadsides and long driveways. A well-planted median cuts headlight glare and copes with dust, heat and limited watering.', 'We planted 3,500 plants on the NH-7 median for an NHAI contractor.'],
+      ['Industrial green belts', 'Dense native green buffers around factories, fuel facilities and civic infrastructure, as environmental clearances often require. Species are chosen to trap dust, survive the site and respect its safety rules.', 'At the Delhi Airport fuel facility we built a safety-compliant green belt and landscape.'],
+      ['Erosion control and slope turfing', 'Turf and vegetation that hold slopes, embankments and capped landfills in place through the monsoon.', 'We laid bio-turfing over 2.5 acres of the Gazipur landfill in Delhi for slope stabilisation.'],
+    ],
+    listTitle: 'Four services for the living part of your site.',
+    cta: ['Have trees in the way of your project?', 'Send us the site location and the trees involved. We will survey the site and come back with a proposal and an itemised estimate.', 'Book a Site Visit'],
+    side: ['Planning tree work?', 'Get a proposal from our horticulture team.'] },
+  { key: 'hardscaping', file: 'hardscaping-service.html', short: 'Hardscaping Services', name: 'Hardscaping',
+    line: 'Water features, paving, lighting and shade structures, engineered for heavy use.',
+    proof: 'Overseen by an engineer retired from DDA',
     title: 'Water Features, Paving &amp; Lighting | Laavin Infrascapes',
     description: 'Water features, stone paving, landscape lighting, fencing, pergolas and gazebos for hotels, offices and farmhouses, overseen by a former DDA engineer.',
     eyebrow: 'Hardscaping services', h1: 'Built elements that last as long as <em>the landscape.</em>',
@@ -588,24 +583,64 @@ const SERVICES = [
     listTitle: 'Six hardscape elements, engineered to last.',
     cta: ['Have drawings or a layout ready?', 'Send them over. Our engineer will review the hardscape scope and prepare a detailed, itemised estimate.', 'Book a Site Visit'],
     side: ['Planning site works?', 'Talk to us about paving, water features and lighting.'] },
-  { key: 'horticulture', file: 'horticulture-service.html', short: 'Irrigation & Horticulture',
-    title: 'Drip Irrigation &amp; Tree Transplantation | Laavin Infrascapes',
-    description: 'Drip and sprinkler irrigation, mature tree transplantation and green belt plantation, with NH-307, NH-7 and Delhi Airport projects delivered.',
-    eyebrow: 'Irrigation and horticulture', h1: 'Irrigation and horticulture for <em>sites of every size.</em>',
-    lead: 'From drip lines on a farmhouse lawn to mature tree transplantation on a national highway, our horticulture team plans the living part of every project.',
-    photo: { src: 'assets/images/horti.webp', alt: 'Plant nursery with misting irrigation system' },
-    intro: 'Our horticulture team is led by a botanist with 30+ years of field experience. Species, soil treatment and watering are planned for each site, and survival is tracked after handover.',
+  { key: 'irrigation', file: 'irrigation-services.html', short: 'Irrigation Services', name: 'Irrigation',
+    line: 'Drip and sprinkler systems that water each plant when it needs it.',
+    proof: 'Designed, installed and serviced by our team',
+    title: 'Drip &amp; Sprinkler Irrigation in Delhi NCR | Laavin',
+    description: 'Drip and sprinkler irrigation for gardens, terraces, farmhouses, campuses and highways in Delhi NCR, designed, installed and serviced by one team.',
+    eyebrow: 'Irrigation services', h1: 'Water by measure, <em>not by guesswork.</em>',
+    lead: 'Drip and sprinkler systems for terraces, gardens, farmhouses, campuses and long highway stretches, planned in from the start so every plant gets the water it needs.',
+    photo: { src: 'assets/images/horti.webp', alt: 'Misting irrigation running over rows of nursery plants' },
+    intro: 'We design, install and service the system, so one team answers for it. Each layout is planned around the plants, the soil and the water you have, whether that is borewell, municipal supply or treated STP water.',
     items: [
-      ['Drip and sprinkler irrigation', 'Automated drip and sprinkler systems that water each plant when it needs it, cutting water use and labour on terraces, gardens, farmhouses and long highway stretches. We design, install and service the system.'],
-      ['Mature tree transplantation', 'When construction puts mature trees in the way, we move them instead of felling them. We survey and prune each tree, dig and protect the root ball, lift and transport it, replant it at the new site, and stay on for watering, feeding and survival monitoring.', 'On NH-307 we relocated 155 mature roadside trees for an NHAI widening project.'],
-      ['Highway median and avenue plantation', 'Hardy, pollution-tolerant shrubs and trees for medians, roadsides and long driveways. A well-planted median cuts headlight glare and copes with dust, heat and limited watering.', 'We planted 3,500 plants on the NH-7 median for an NHAI contractor.'],
-      ['Industrial green belts', 'Dense native green buffers around factories, fuel facilities and civic infrastructure, as environmental clearances often require. Species are chosen to trap dust, survive the site and respect its safety rules.', 'At the Delhi Airport fuel facility we built a safety-compliant green belt and landscape.'],
-      ['Erosion control and slope turfing', 'Turf and vegetation that hold slopes, embankments and capped landfills in place through the monsoon.', 'We laid bio-turfing over 2.5 acres of the Gazipur landfill in Delhi for slope stabilisation.'],
+      ['Drip and sprinkler irrigation', 'Automated drip and sprinkler systems that water each plant when it needs it, cutting water use and labour on terraces, gardens, farmhouses and long highway stretches. Drip for beds, sprinklers for lawns.'],
+      ['Zoned, automated timers', 'Beds, lawns and trees are split into zones, each on its own timer, so watering runs on schedule without anyone opening a valve.'],
+      ['Borewell and treated STP water', 'Filters chosen for your water source, so borewell or treated STP water can run through the system without clogging the lines.'],
+      ['Terrace and balcony drip', 'Compact drip lines on a timer for planters and pots, with self-draining pots so no water stands on the slab.'],
+      ['System servicing', 'We service the systems we install: cleaning filters, flushing lines and resetting timers as the seasons change.'],
     ],
-    listTitle: 'Five services for the living part of your site.',
-    cta: ['Need irrigation, or have trees in the way?', 'Send us the site location and what you need. We will survey the site and come back with a proposal and an itemised estimate.', 'Book a Site Visit'],
-    side: ['Planning irrigation or tree work?', 'Get a proposal from our horticulture team.'] },
+    listTitle: 'Five ways we keep every plant watered.',
+    cta: ['Want to cut your watering costs?', 'Send us your site plan and water source details. We will propose a zoned drip and sprinkler layout with a clear, itemised estimate.', 'Book a Site Visit'],
+    side: ['Planning irrigation?', 'Get a zoned layout and estimate from our team.'] },
 ];
+
+// Services overview: sticky jump bar, then one compact row per service line
+const servicesTrail = [['Home', 'index.html'], ['Services']];
+const serviceRow = (s, i) => `          <article class="svc-row${i % 2 ? ' flip' : ''}" id="${s.key}">
+            <div class="svc-row-photo"><img src="${s.photo.src}" alt="${esc(s.photo.alt)}" width="900" height="560" loading="lazy"></div>
+            <div class="svc-row-copy">
+              <div class="service-num">${String(i + 1).padStart(2, '0')} / ${s.name.toUpperCase()}</div>
+              <h3>${esc(s.short)}</h3>
+              <p>${s.line}</p>
+              <ul class="svc-chips">${s.items.map(it => `<li>${it[0]}</li>`).join('')}</ul>
+              <p class="svc-proof">${s.proof}</p>
+              <a class="text-link" href="${s.file}">Explore ${s.name.toLowerCase()} <span>→</span></a>
+            </div>
+          </article>`;
+built.push(page({
+  file: 'services.html', active: 'services',
+  title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
+  description: 'Landscaping, tree transplantation and green belts, hardscaping and drip irrigation from one accountable team in Delhi NCR.',
+  schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
+  body: `${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain, so you deal with one accountable team.' })}
+
+    <section class="services svc-lines">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Our services</p><h2>Four service lines, <br>one team.</h2></div>
+          <p>Every service we offer, in one place. Jump to the line you need. Many projects combine two or three, all delivered by the same team.</p>
+        </div>
+        <nav class="svc-bar" aria-label="Service lines">${SERVICES.map(s => `<a href="#${s.key}">${s.name}</a>`).join('')}</nav>
+        <div class="svc-rows">
+${SERVICES.map(serviceRow).join('\n')}
+        </div>
+      </div>
+    </section>
+
+${processSection('Whichever service you need, the same four steps apply, run by the same accountable team.')}
+
+${ctaBand('Planning a garden, terrace or landscape?', 'Send us the site location and what you have in mind. We will come back within 24 hours with ideas and an estimate.', 'Book a Site Visit')}`,
+}));
 
 const serviceLinks = active => `<ul class="side-links">${SERVICES.map(s => `<li><a href="${s.file}"${s.key === active ? ' aria-current="page"' : ''}>${esc(s.short)}</a></li>`).join('')}<li><a href="services.html">All services</a></li></ul>`;
 

@@ -40,9 +40,10 @@ We can work directly with the client or under a facility management (FM) company
 
 ## Key pages
 - Services: https://laavinfra.com/services.html
-- Landscape services: https://laavinfra.com/landscaping-services.html
-- Irrigation and horticulture: https://laavinfra.com/horticulture-service.html
+- Landscaping services: https://laavinfra.com/landscaping-services.html
+- Horticultural services (tree transplantation, green belts): https://laavinfra.com/horticulture-service.html
 - Hardscaping: https://laavinfra.com/hardscaping-service.html
+- Irrigation services: https://laavinfra.com/irrigation-services.html
 - Projects: https://laavinfra.com/projects.html
 - About: https://laavinfra.com/about.html
 - Guides: https://laavinfra.com/blog.html
