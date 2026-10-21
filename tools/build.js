@@ -37,7 +37,7 @@ const NAV = [
     { key: 'horticulture', href: 'horticulture-service.html', label: 'Irrigation & Horticulture' },
   ] },
   { key: 'about', href: 'about.html', label: 'About' },
-  { key: 'projects', href: 'index.html#projects', label: 'Projects' },
+  { key: 'projects', href: 'projects.html', label: 'Projects' },
   { key: 'blog', href: 'blog.html', label: 'Insights' },
 ];
 
@@ -79,7 +79,7 @@ function footer() {
         </div>
         <div class="footer-col">
           <h2>Company</h2>
-          <ul><li><a href="about.html">About us</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="blog.html">Insights</a></li><li><a href="contact.html">Contact</a></li></ul>
+          <ul><li><a href="about.html">About us</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Insights</a></li><li><a href="contact.html">Contact</a></li></ul>
         </div>
         <div class="footer-col">
           <h2>Services</h2>
@@ -202,40 +202,28 @@ const processSection = (intro, button = true) => `    <section class="process">
       </div>
     </section>`;
 
-// Delivered projects shown in the homepage project list, in display order.
-// To add a project, copy one line and edit it. Keep it to real, delivered work.
-const PROJECT_LIST = [
-  { sector: 'Airport', name: 'Green Belt and Landscaping', client: 'Delhi Airport Fuel Facility Pvt. Ltd.', scale: 'Safety-compliant green belt' },
-  { sector: 'School', name: 'Cricket Ground and Running Track', client: 'Angels Public School, Faridabad', scale: 'Turf, track and drainage' },
-  { sector: 'Highway', name: 'Median Plantation, NH&#8209;7', client: 'NHAI, via ATLAS Constructions (P) Ltd.', scale: '3,500 plants' },
-  { sector: 'Railways', name: 'Tree Transplantation, Ujjain', client: 'Indian Railways, via DRA', scale: '80 trees' },
-  { sector: 'Landfill', name: 'Soil Protection Turfing', client: 'Gazipur landfill, for UPL Environmental Engineers Ltd.', scale: '2.5 acres' },
+// Delivered projects, newest first. The homepage shows the first three; projects.html shows them all.
+// To add a project, copy one line to the top and edit it. Keep it to real, delivered work.
+// num is the headline figure; set word: true when it is a short phrase rather than a number.
+const PROJECTS = [
+  { sector: 'Railways', num: '80', what: 'trees moved', name: 'Tree Transplantation, Ujjain', client: 'Indian Railways, via DRA' },
+  { sector: 'Highway', num: '155', what: 'mature trees moved, not cut down', name: 'Tree Transplantation, NH&#8209;307', client: 'NHAI, via Vasistha Construction Pvt. Ltd.' },
+  { sector: 'Highway', num: '3,500', what: 'plants on the median', name: 'Median Plantation, NH&#8209;7', client: 'NHAI, via ATLAS Constructions (P) Ltd.' },
+  { sector: 'Airport', num: 'Green belt', word: true, what: 'built around fuel-site safety rules', name: 'Green Belt and Landscaping', client: 'Delhi Airport Fuel Facility Pvt. Ltd.' },
+  { sector: 'School', num: 'Ground + track', word: true, what: 'turf, running track and drainage', name: 'Cricket Ground and Running Track', client: 'Angels Public School, Faridabad' },
+  { sector: 'Landfill', num: '2.5 acres', what: 'of slope turfing', name: 'Soil Protection Turfing', client: 'Gazipur landfill, for UPL Environmental Engineers Ltd.' },
 ];
-
+const projectCard = p => `          <article class="proj-card"><span class="proj-tag">${p.sector}</span><div class="proj-num${p.word ? ' word' : ''}">${p.num}</div><p class="proj-what">${p.what}</p><h3>${p.name}</h3><p class="proj-client">${p.client}</p></article>`;
 const projectsSection = () => `    <section class="projects" id="projects">
       <div class="container">
         <div class="section-head">
           <div><p class="eyebrow">Selected work</p><h2>Work that <em>speaks for itself.</em></h2></div>
+          <div class="section-side"><a class="text-link" href="projects.html">See all projects <span>→</span></a></div>
         </div>
-        <article class="project-feature">
-          <div class="project-feature-photo"><img src="assets/images/blog/blog-1.webp" alt="A large mature tree with wide spreading branches" width="1200" height="900" loading="lazy"></div>
-          <div class="project-feature-body">
-            <span class="project-tag">Featured project</span>
-            <p class="project-metric">155<span>mature trees relocated, not felled</span></p>
-            <h3>Tree Transplantation, NH&#8209;307</h3>
-            <p>Each tree was surveyed, prepared, lifted and replanted alongside the road contractor's schedule, with aftercare until it re-established.</p>
-            <dl class="project-facts">
-              <div><dt>Client</dt><dd>NHAI, via Vasistha Construction Pvt. Ltd.</dd></div>
-              <div><dt>Scope</dt><dd>Survey, transplantation and aftercare</dd></div>
-            </dl>
-          </div>
-        </article>
-        <div class="ledger" role="table" aria-label="More delivered projects">
-          <div class="ledger-row ledger-head" role="row"><span role="columnheader">Project</span><span role="columnheader">Client</span><span role="columnheader">Scale</span></div>
-${PROJECT_LIST.map(p => `          <div class="ledger-row" role="row"><div class="ledger-name" role="cell"><span class="ledger-tag">${p.sector}</span><h3>${p.name}</h3></div><span class="ledger-client" role="cell">${p.client}</span><span class="ledger-scale" role="cell">${p.scale}</span></div>`).join('\n')}
+        <div class="proj-grid">
+${PROJECTS.slice(0, 3).map(projectCard).join('\n')}
         </div>
         <div class="project-foot">
-          <p class="project-note">The photograph is representative of this type of work.</p>
           <a class="text-link" href="contact.html">Have a similar project? Book a site visit <span>↗</span></a>
         </div>
       </div>
@@ -436,6 +424,8 @@ ${proofStrip}
       </div>
     </section>
 
+${processSection('')}
+
     <section class="trust" aria-label="Organisations we have worked with">
       <div class="container">
 ${clientsBlock()}
@@ -443,8 +433,6 @@ ${clientsBlock()}
     </section>
 
 ${projectsSection()}
-
-${processSection('')}
 
 ${credentialsSection(false)}
 
@@ -742,6 +730,27 @@ ${enquiryForm()}
     </section>`,
 }));
 
+// Projects
+const projectsTrail = [['Home', 'index.html'], ['Projects']];
+built.push(page({
+  file: 'projects.html', active: 'projects',
+  title: 'Projects: Tree Transplantation &amp; Green Belts | Laavin',
+  description: 'Projects by Laavin Infrascapes: tree transplantation for NHAI and Indian Railways, highway median planting, green belts, sports turf and slope turfing.',
+  schema: [ORG_SCHEMA, breadcrumbSchema(projectsTrail)],
+  body: `${pageHero({ trail: projectsTrail, eyebrow: 'Projects', h1: 'Work that <em>speaks for itself.</em>', lead: 'A selection of projects our team has delivered, from highways and railways to an airport, a school and a landfill. Ask us for the work orders and client references.' })}
+
+    <section class="projects">
+      <div class="container">
+        <h2 class="sr-only">All projects</h2>
+        <div class="proj-grid">
+${PROJECTS.map(projectCard).join('\n')}
+        </div>
+      </div>
+    </section>
+
+${ctaBand('Have a similar project?', 'Tell us about the site and the trees or planting involved. We reply within 24 hours.', 'Book a Site Visit')}`,
+}));
+
 // Privacy
 const privacyTrail = [['Home', 'index.html'], ['Privacy policy']];
 built.push(page({
@@ -783,7 +792,7 @@ built.push(page({
       <div class="container">
         <div class="info-grid">
           <div class="info-card"><h2>Services</h2><p>Landscaping, irrigation, hardscaping and tree transplantation. <a href="services.html">See all services</a></p></div>
-          <div class="info-card"><h2>Projects</h2><p>Highway, railway, airport, school and landfill work we have delivered. <a href="index.html#projects">See our projects</a></p></div>
+          <div class="info-card"><h2>Projects</h2><p>Highway, railway, airport, school and landfill work we have delivered. <a href="projects.html">See our projects</a></p></div>
           <div class="info-card"><h2>Insights</h2><p>Practical guides on planting, irrigation and keeping a landscape alive. <a href="blog.html">Read the guides</a></p></div>
         </div>
       </div>

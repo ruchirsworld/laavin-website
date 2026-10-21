@@ -761,3 +761,17 @@ label{font-size:13px}.nav-links{font-size:15px}.btn{font-size:15px;min-height:48
 .pillars strong{color:var(--forest)}
 @media(max-width:900px){.about-v2{grid-template-columns:1fr;gap:32px}.pillars{grid-template-columns:1fr;margin-top:28px}}
 @media(max-width:560px){.leaders{grid-template-columns:1fr}}
+
+/* Project cards (homepage shows 3, projects.html shows all) */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.proj-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 22px 18px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.proj-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.proj-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--gold-text)}
+.proj-num{font-family:var(--serif);font-size:44px;line-height:1;color:var(--forest);margin:14px 0 4px}
+.proj-num.word{font-size:30px;line-height:1.15}
+.proj-what{font-size:14px;color:var(--muted);margin:0 0 14px}
+.proj-card h3{font-size:17px;line-height:1.3;color:var(--forest);margin:auto 0 4px;padding-top:12px;border-top:1px solid var(--line)}
+.proj-client{font-size:13.5px;color:var(--body);margin:0}
+.projects .project-foot{margin-top:18px}
+@media(max-width:900px){.proj-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.proj-grid{grid-template-columns:1fr}.proj-num{font-size:38px}}
