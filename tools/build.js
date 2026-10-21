@@ -218,7 +218,7 @@ const projectsSection = () => `    <section class="projects" id="projects">
           <div><p class="eyebrow">Selected work</p><h2>Work that <em>speaks for itself.</em></h2></div>
         </div>
         <article class="project-feature">
-          <div class="project-feature-photo"><img src="assets/images/blog/blog-1.webp" alt="Mature tree being lifted by crane for transplantation" width="1200" height="900" loading="lazy"></div>
+          <div class="project-feature-photo"><img src="assets/images/blog/blog-1.webp" alt="A large mature tree with wide spreading branches" width="1200" height="900" loading="lazy"></div>
           <div class="project-feature-body">
             <span class="project-tag">Featured project</span>
             <p class="project-metric">155<span>mature trees relocated, not felled</span></p>
