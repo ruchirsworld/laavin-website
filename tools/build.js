@@ -75,7 +75,7 @@ function footer() {
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" aria-label="${BRAND} homepage"><img src="assets/images/logo/logo-white.png" alt="${BRAND}" width="150" height="56" loading="lazy"></a>
-          <p>Landscape design, terrace gardens and irrigation for hotels, offices and farmhouses, led by a botanist and a retired DDA engineer. Formerly EGW Services.</p>
+          <p>Landscape design, terrace gardens and irrigation for hotels, offices and farmhouses, led by a botanist and a retired DDA engineer.</p>
         </div>
         <div class="footer-col">
           <h2>Company</h2>
@@ -105,7 +105,6 @@ const ORG_SCHEMA = {
   '@type': 'LocalBusiness',
   '@id': SITE + '#business',
   name: BRAND,
-  alternateName: 'EGW Services',
   description: 'Landscaping, tree transplantation and irrigation company in Delhi NCR. Led by a botanist and a retired DDA engineer. Empanelled with NHAI, DDA and Indian Railways.',
   url: SITE,
   logo: SITE + 'assets/images/logo/logo-black.png',
@@ -333,6 +332,9 @@ ${FAQ.map(([q, a]) => `          <details class="faq-item"><summary>${q}</summar
     </section>`;
 const FAQ_SCHEMA = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
 
+// Homepage About photo. Replace with a real photo of the team when one is available.
+const ABOUT_PHOTO = { src: 'assets/images/about/about-nursery.webp', alt: 'Rows of potted plants along a path in a plant nursery in Delhi' };
+
 // ---------- pages ----------
 
 const built = [];
@@ -415,20 +417,22 @@ ${proofStrip}
     </section>
 
     <section class="about" id="about">
-      <div class="container about-grid">
-        <div class="about-photo"><img src="assets/images/about/about-2.webp" alt="Our team reviewing a landscape plan on site" width="1200" height="900" loading="lazy"><div class="about-note"><b>60+</b>years of combined horticulture and engineering experience</div></div>
+      <div class="container about-v2">
         <div class="about-copy">
           <p class="eyebrow">About us</p>
           <h2 class="h2">Plant science meets <em>solid engineering.</em></h2>
-          <p>Laavin Infrascapes, formerly EGW Services, is led by a horticulturist with an M.Sc. in Botany and a civil and electrical engineer retired from the Delhi Development Authority, each with 30+ years in the field.</p>
-          <p>That is why our gardens last. The planting is chosen by a botanist, and the waterproofing, drainage and irrigation underneath are checked by an engineer. The same team has delivered NHAI highway projects and brings that discipline to every terrace, hotel, office and farmhouse.</p>
-          <ul class="check-list">
-            <li><span class="check">✓</span><span><strong>Planned for survival.</strong> Species, soil and watering chosen for each site.</span></li>
-            <li><span class="check">✓</span><span><strong>One team, design to maintenance.</strong> No hand-offs between contractors.</span></li>
-            <li><span class="check">✓</span><span><strong>Water-wise by design.</strong> Irrigation planned in from the start.</span></li>
-          </ul>
+          <p>Laavin Infrascapes is a Delhi landscaping and horticulture company. We design, build and maintain gardens, green belts and irrigation for offices, hotels, builders, societies and homes across Delhi NCR.</p>
+          <p>Our work grew on demanding sites: highway corridors, industrial green belts and landfill slopes, for clients such as NHAI, Indian Railways and the Delhi Airport fuel facility. Those projects taught us to plan for survival, keep our paperwork in order and finish when promised. Today we bring the same discipline to every terrace, hotel, office and farmhouse.</p>
           <a class="btn" href="about.html">Meet the Team <span>↗</span></a>
         </div>
+        <div class="about-photo"><img src="${ABOUT_PHOTO.src}" alt="${esc(ABOUT_PHOTO.alt)}" width="1200" height="900" loading="lazy"><div class="about-note"><b>3</b>empanelments: NHAI, DDA and Indian Railways</div></div>
+      </div>
+      <div class="container">
+        <ul class="pillars">
+          <li><span class="check">✓</span><span><strong>Planned for survival.</strong> Species, soil and watering chosen for each site.</span></li>
+          <li><span class="check">✓</span><span><strong>One team, design to maintenance.</strong> No hand-offs between contractors.</span></li>
+          <li><span class="check">✓</span><span><strong>Water-wise by design.</strong> Irrigation planned in from the start.</span></li>
+        </ul>
       </div>
     </section>
 
@@ -473,7 +477,7 @@ const aboutTrail = [['Home', 'index.html'], ['About us']];
 built.push(page({
   file: 'about.html', active: 'about',
   title: 'About Us: Botanist &amp; Engineer Led | Laavin Infrascapes',
-  description: 'Delhi NCR landscaping team led by a botanist and a retired DDA engineer, formerly EGW Services. Empanelled with NHAI, DDA and Indian Railways.',
+  description: 'Delhi NCR landscaping team led by a botanist and a retired DDA engineer. Empanelled with NHAI, DDA and Indian Railways.',
   schema: [ORG_SCHEMA, breadcrumbSchema(aboutTrail)],
   body: `${pageHero({ trail: aboutTrail, eyebrow: 'About us', h1: 'A landscaping team built around <em>plants that survive.</em>', lead: `A Delhi-based team that designs, builds and maintains terrace gardens and landscapes for hotels, offices and farmhouses, with irrigation planned in from the start.`, photo: { src: 'assets/images/about/about-2.webp', alt: 'Our team reviewing a landscape plan on site' } })}
 
@@ -481,9 +485,9 @@ ${proofStrip}
 
     <section class="detail">
       <div class="container prose-cols">
-        <div><p class="eyebrow">Our story</p><h2 class="h2">From EGW Services to ${BRAND}.</h2></div>
+        <div><p class="eyebrow">Our story</p><h2 class="h2">Built on highways, landfills and green belts.</h2></div>
         <div>
-          <p>We started as EGW Services, a landscaping and horticulture firm. As the work grew to highway corridors, industrial green belts and landfill slopes, we became ${BRAND}. Those projects, including tree transplantation on NH-307 and a green belt at the Delhi Airport fuel facility, taught us to plan for survival, keep paperwork in order and finish when promised.</p>
+          <p>We started as a landscaping and horticulture firm. Our work grew to highway corridors, industrial green belts and landfill slopes. Those projects, including tree transplantation on NH-307 and a green belt at the Delhi Airport fuel facility, taught us to plan for survival, keep paperwork in order and finish when promised.</p>
           <p>Today we bring that discipline to terrace gardens, hotels, office premises and farmhouses, where a landscape has to look good every day, not just on handover.</p>
         </div>
       </div>
