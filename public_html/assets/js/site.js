@@ -172,9 +172,11 @@
     select(0);
   })();
 
-  // Service pages on phones: each numbered item opens and closes, one at a time.
-  document.querySelectorAll('.detail-list').forEach(function (list) {
-    var items = list.querySelectorAll('.detail-item');
+  // Service pages on phones: in chapters with several items, each item opens and closes, one at a time.
+  document.querySelectorAll('.chapter-copy').forEach(function (list) {
+    var items = list.querySelectorAll('.chapter-item');
+    if (items.length < 2) return;
+    list.classList.add('acc');
     var mq = window.matchMedia('(max-width: 760px)');
     function setOpen(item, open) {
       item.classList.toggle('open', open);
@@ -185,8 +187,8 @@
       btn.type = 'button';
       btn.className = 'acc-btn';
       btn.setAttribute('aria-label', 'Show details: ' + item.querySelector('h3').textContent);
-      item.appendChild(btn);
-      setOpen(item, false);
+      item.querySelector('h3').appendChild(btn);
+      setOpen(item, item === items[0]);
       item.addEventListener('click', function (e) {
         if (!mq.matches || e.target.closest('a')) return;
         var open = !item.classList.contains('open');
