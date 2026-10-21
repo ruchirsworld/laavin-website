@@ -604,7 +604,13 @@ const SERVICES = [
     side: ['Planning irrigation?', 'Get a zoned layout and estimate from our team.'] },
 ];
 
-// Services overview: sticky jump bar, then the four service lines as photo cards in one row
+// Services sub-header: sits under the site header on the services page and every service page
+const svcBar = active => `    <nav class="svc-bar" aria-label="Services">
+      <div class="container"><a href="services.html"${active === 'services' ? ' aria-current="page"' : ''}>All services</a>${SERVICES.map(s => `<a href="${s.file}"${s.key === active ? ' aria-current="page"' : ''}>${s.name}</a>`).join('')}</div>
+    </nav>
+`;
+
+// Services overview: the four service lines as photo cards in one row
 const servicesTrail = [['Home', 'index.html'], ['Services']];
 const SERVICE_BULLETS = {
   landscaping: ['Terrace, balcony &amp; vertical gardens', 'Hotel, office &amp; farmhouse landscaping', 'Lawns, planting &amp; maintenance'],
@@ -612,21 +618,20 @@ const SERVICE_BULLETS = {
   hardscaping: ['Fountains &amp; water features', 'Pathways &amp; stone paving', 'Pergolas, gazebos &amp; lighting'],
   irrigation: ['Drip &amp; sprinkler irrigation', 'Zoned, automated timers', 'Borewell &amp; treated STP water'],
 };
-const serviceCard = (s, i) => `          <article class="service-card has-photo" id="${s.key}"><div class="card-photo"><img src="${s.photo.src}" alt="${esc(s.photo.alt)}" width="900" height="560" loading="lazy"></div><div class="card-body"><div class="service-num">${String(i + 1).padStart(2, '0')} / ${s.name.toUpperCase()}</div><h3>${esc(s.short)}</h3><p>${s.line}</p><ul class="mini-list">${SERVICE_BULLETS[s.key].map(x => `<li>${x}</li>`).join('')}</ul><a class="text-link" href="${s.file}">Explore ${s.name.toLowerCase()} <span>→</span></a></div></article>`;
+const serviceCard = (s, i) => `          <article class="service-card has-photo"><div class="card-photo"><img src="${s.photo.src}" alt="${esc(s.photo.alt)}" width="900" height="560" loading="lazy"></div><div class="card-body"><div class="service-num">${String(i + 1).padStart(2, '0')} / ${s.name.toUpperCase()}</div><h3>${esc(s.short)}</h3><p>${s.line}</p><ul class="mini-list">${SERVICE_BULLETS[s.key].map(x => `<li>${x}</li>`).join('')}</ul><a class="text-link" href="${s.file}">Explore ${s.name.toLowerCase()} <span>→</span></a></div></article>`;
 built.push(page({
   file: 'services.html', active: 'services',
   title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
   description: 'Landscaping, tree transplantation and green belts, hardscaping and drip irrigation from one accountable team in Delhi NCR.',
   schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
-  body: `${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain, so you deal with one accountable team.' })}
+  body: `${svcBar('services')}${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain, so you deal with one accountable team.' })}
 
     <section class="services svc-lines">
       <div class="container">
         <div class="section-head">
           <div><p class="eyebrow">Our services</p><h2>Four service lines, <br>one team.</h2></div>
-          <p>Every service we offer, in one place. Jump to the line you need. Many projects combine two or three, all delivered by the same team.</p>
+          <p>Pick the service closest to your scope. Many projects combine two or three, all delivered by the same team.</p>
         </div>
-        <nav class="svc-bar" aria-label="Service lines">${SERVICES.map(s => `<a href="#${s.key}">${s.name}</a>`).join('')}</nav>
         <div class="service-grid svc-four">
 ${SERVICES.map(serviceCard).join('\n')}
         </div>
@@ -647,7 +652,7 @@ for (const s of SERVICES) {
   built.push(page({
     file: s.file, active: s.key, title: s.title, description: s.description,
     schema: [ORG_SCHEMA, breadcrumbSchema(trail), { '@context': 'https://schema.org', '@type': 'Service', name: s.short, description: s.description, serviceType: s.items.map(i => i[0]), provider: { '@id': SITE + '#business' }, areaServed: { '@type': 'AdministrativeArea', name: 'Delhi NCR' }, url: SITE + s.file }],
-    body: `${pageHero({ trail, eyebrow: s.eyebrow, h1: s.h1, lead: s.lead, photo: s.photo, actions: `<a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a>` })}
+    body: `${svcBar(s.key)}${pageHero({ trail, eyebrow: s.eyebrow, h1: s.h1, lead: s.lead, photo: s.photo, actions: `<a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a>` })}
 
     <section class="detail">
       <div class="container detail-grid">

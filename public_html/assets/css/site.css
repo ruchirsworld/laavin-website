@@ -776,13 +776,14 @@ label{font-size:13px}.nav-links{font-size:15px}.btn{font-size:15px;min-height:48
 @media(max-width:900px){.proj-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.proj-grid{grid-template-columns:1fr}.proj-num{font-size:38px}}
 
-/* Services page: sticky jump bar, four photo cards in one row */
-.svc-bar{position:sticky;top:76px;z-index:5;display:flex;gap:4px;padding:4px;margin-bottom:18px;background:#fff;border:1px solid var(--line);border-radius:8px;max-width:620px}
-.svc-bar a{flex:1;text-align:center;padding:10px 6px;border-radius:5px;font-weight:750;font-size:14px;color:var(--forest);text-decoration:none;transition:background .2s}
+/* Services sub-header and the four service cards */
+.svc-bar{position:sticky;top:73px;z-index:15;background:#fff;border-bottom:1px solid var(--line)}
+.svc-bar .container{display:flex;gap:4px;padding-top:6px;padding-bottom:6px;overflow-x:auto;scrollbar-width:none}
+.svc-bar .container::-webkit-scrollbar{display:none}
+.svc-bar a{flex:0 0 auto;padding:9px 16px;border-radius:5px;font-weight:750;font-size:14px;color:var(--forest);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
 .svc-bar a:hover{background:var(--sage)}
+.svc-bar a[aria-current="page"]{background:var(--forest);color:#fff}
 .svc-four{grid-template-columns:repeat(4,1fr);gap:16px}
-.svc-four>.service-card{scroll-margin-top:150px}
-.svc-four>.service-card:target{border-color:var(--gold-text);box-shadow:0 0 0 2px var(--gold-text)}
 .svc-four .card-photo{aspect-ratio:16/11}
 .svc-four .card-body{padding:18px 18px 18px}
 .svc-four .service-num{margin-bottom:10px}
@@ -791,6 +792,6 @@ label{font-size:13px}.nav-links{font-size:15px}.btn{font-size:15px;min-height:48
 .svc-four .mini-list li{font-size:14px}
 @media(max-width:1100px){.svc-four{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){
-  .svc-bar{top:64px;overflow-x:auto;scrollbar-width:none}.svc-bar::-webkit-scrollbar{display:none}.svc-bar a{font-size:13px;padding:10px 8px;white-space:nowrap}
-  .svc-four{grid-template-columns:1fr;gap:10px}.svc-four>.service-card{scroll-margin-top:130px}
+  .svc-bar{top:63px}.svc-bar .container{padding-top:5px;padding-bottom:5px}.svc-bar a{font-size:13px;padding:8px 11px}
+  .svc-four{grid-template-columns:1fr;gap:10px}
 }

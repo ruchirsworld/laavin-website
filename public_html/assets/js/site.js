@@ -196,3 +196,9 @@
     });
   });
 })();
+
+// Services sub-header: on phones, scroll the current service into view
+(function () {
+  var cur = document.querySelector('.svc-bar [aria-current="page"]');
+  if (cur) cur.parentNode.scrollLeft = cur.offsetLeft - 16;
+})();
