@@ -906,4 +906,16 @@ built.push(page({
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(/(\s(?:href|src)=")(?!https?:|mailto:|tel:|data:|#|\/)/g, '$1/').replace(/srcset="([^"]+)"/g, (m, v) => 'srcset="' + v.split(', ').map(s => s.startsWith('/') ? s : '/' + s).join(', ') + '"'));
 }
 
+// Sitemap for Google Search Console: every indexable page, rebuilt on each run.
+// Update SITE_UPDATED when page content changes.
+const SITE_UPDATED = '2026-10-21';
+{
+  const rank = f => f === 'index.html' ? 1.0 : f === 'services.html' || SERVICES.some(s => s.file === f) ? 0.9 : f === 'projects.html' ? 0.8 : ['about.html', 'contact.html', 'blog.html'].includes(f) ? 0.7 : f === 'privacy.html' ? 0.3 : 0.6;
+  const urls = built
+    .filter(f => f !== '404.html' && !/name="robots" content="noindex"/.test(fs.readFileSync(path.join(PUB, f), 'utf8')))
+    .sort((x, y) => rank(y) - rank(x))
+    .map(f => `  <url><loc>${SITE}${f === 'index.html' ? '' : f}</loc><lastmod>${SITE_UPDATED}</lastmod><priority>${rank(f).toFixed(1)}</priority></url>`);
+  fs.writeFileSync(path.join(PUB, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`);
+}
+
 console.log('Built ' + built.length + ' pages:\n' + built.join('\n'));
