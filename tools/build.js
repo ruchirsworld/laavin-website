@@ -624,7 +624,7 @@ built.push(page({
   title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
   description: 'Landscaping, tree transplantation and green belts, hardscaping and drip irrigation from one accountable team in Delhi NCR.',
   schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
-  body: `${svcBar('services')}${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain. Pick the service closest to your scope. Many projects combine two or three, all delivered by the same team.' })}
+  body: `${svcBar('services')}${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'Whether you need trees moved, a terrace greened or a garden that waters itself, start with one service. Most sites need two or three, and one team delivers them all.' })}
 
     <section class="services svc-lines">
       <div class="container">
