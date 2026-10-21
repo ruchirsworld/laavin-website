@@ -46,7 +46,7 @@ for (const f of pages) {
   const hs = [...s.matchAll(/<h([1-6])[\s>]/g)].map(m => +m[1]); let prev = 0;
   for (const h of hs) { if (h > prev + 1 && prev !== 0) { p('heading jumps h' + prev + ' to h' + h); break; } prev = h; }
 }
-for (const f of ['assets/css/site.css', 'assets/js/site.js', 'assets/js/contact-form.js', 'contact.php', 'sitemap.xml', 'robots.txt', '.htaccess']) {
+for (const f of ['assets/css/site.css', 'assets/js/site.js', 'assets/js/contact-form.js', 'contact.php', 'sitemap.xml', 'robots.txt', '.htaccess', 'llms.txt']) {
   const s = fs.readFileSync(path.join(PUB, f), 'utf8');
   if (/[\u2014\u2013]|&mdash;|&ndash;/.test(s)) problems.push(f + ': contains em/en dash');
   for (const m of s.matchAll(/url\(([^)]+)\)/g)) { const u = m[1].replace(/['"]/g, ''); if (f.endsWith('.css') && !/^(https?:|data:)/.test(u) && !fs.existsSync(path.join(PUB, 'assets/css', u))) problems.push(f + ': missing ' + u); }

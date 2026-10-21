@@ -17,14 +17,15 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/images/favicon.png" type="image/png">
 <link rel="preload" href="assets/fonts/inter/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=7c5fdbc4">
+<link rel="stylesheet" href="assets/css/site.css?v=f797ce73">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://laavinfra.com/#business",
   "name": "Laavin Infrascapes",
   "alternateName": "EGW Services",
-  "description": "Landscaping, terrace gardens, hotel, office and farmhouse landscaping, irrigation and tree transplantation contractor.",
+  "description": "Landscaping, tree transplantation and irrigation company in Delhi NCR. Led by a botanist and a retired DDA engineer. Empanelled with NHAI, DDA and Indian Railways.",
   "url": "https://laavinfra.com/",
   "logo": "https://laavinfra.com/assets/images/logo/logo-black.png",
   "image": "https://laavinfra.com/assets/images/og-image.jpg",
@@ -37,7 +38,79 @@
     "postalCode": "110096",
     "addressCountry": "IN"
   },
-  "areaServed": "India"
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Delhi NCR"
+  },
+  "knowsAbout": [
+    "Landscaping",
+    "Tree transplantation",
+    "Drip irrigation",
+    "Sprinkler irrigation",
+    "Green belt development",
+    "Highway median plantation",
+    "Terrace gardens",
+    "Vertical gardens",
+    "Hardscaping",
+    "Landscape maintenance",
+    "Sports turf"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which areas do you work in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are based in New Ashok Nagar, Delhi, and work across Delhi NCR. We also take on larger projects outside Delhi, such as moving 80 trees for Indian Railways in Ujjain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you move a big tree instead of cutting it down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We check the tree, prepare its roots, lift it with a crane and replant it. Then we water and check it until it grows new roots. On NH-307 we moved 155 mature trees for an NHAI project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you look after the garden after it is built?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We offer regular maintenance. You get a photo report every month, and we replace plants that fail on terms agreed in writing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my terrace hold a garden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often, yes, but we check first. Our engineer checks the roof load and waterproofing before any work starts. We use light soil and drip watering to keep the weight and water low."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with facility management (FM) companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can hire us directly, or we can work as the garden specialist under your FM company contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get a price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Book a site visit, or send photos of your site on WhatsApp to (+91) 98115 11558. We reply within 24 hours. After the site visit, you get drawings and an item-wise estimate."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -64,13 +137,13 @@
         <div>
           <p class="eyebrow">Landscaping<span class="hide-sm"> · Terrace gardens</span> · Irrigation</p>
           <h1>Gardens and landscapes, <em>planted to survive.</em></h1>
-          <p class="hero-copy">For offices, hotels, builders, societies and homes across Delhi NCR. Planned by a botanist and an engineer to survive the heat, the water and the years after handover.</p>
+          <p class="hero-copy">We design, build and look after gardens and landscapes across Delhi NCR. A botanist picks the plants and an engineer checks the soil, water and drainage, so your garden stays green for years.</p>
           <div class="hero-actions"><a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a><a class="btn btn-outline" href="#projects">See Our Projects <span>↓</span></a></div>
           <div class="micro-trust"><span class="dot"></span><span>Empanelled with NHAI, DDA and Indian Railways</span></div>
         </div>
         <div class="hero-visual">
           <div class="hero-photo"><img src="assets/images/about/about-6.webp" srcset="assets/images/about/about-6-800.webp 800w, assets/images/about/about-6.webp 1200w" sizes="(max-width: 760px) 100vw, 600px" alt="Landscaped courtyard with a water channel, palms and seating" width="1400" height="1000" fetchpriority="high"></div>
-          <div class="photo-label"><strong>Survival is part of the scope</strong><span>Species, soil, watering and aftercare are planned for every site, and tracked after handover.</span></div>
+          <div class="photo-label"><strong>Survival is part of the scope</strong><span>We plan the plants, soil and watering for every site, and keep checking after handover.</span></div>
         </div>
       </div>
     </section>
@@ -90,12 +163,12 @@
           <div><p class="eyebrow">Services</p><h2>Rooted in science. <em>Grown with care.</em></h2></div>
         </div>
         <div class="service-grid svc-acc">
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 28V6h14v22M20 12h6v16M3 28h26M10 10h2M14 10h2M10 15h2M14 15h2M10 20h2M14 20h2M23 17h1M23 22h1"/></svg></span><h3>Office &amp; Corporate Premises</h3></div><p>Green that never lands on your desk as a problem.</p><ul class="mini-list"><li>Design, planting and scheduled care</li><li>Monthly photo reports you can forward</li><li>Direct, or under your FM partner</li></ul><a class="text-link" href="landscaping-services.html">Office landscaping <span>→</span></a></article>
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 23h22M7 23a9 9 0 0 1 18 0M16 14v-2M14 12h4M4 27h24"/></svg></span><h3>Hotel &amp; Resort Landscaping</h3></div><p>Lawns ready for the season, upkeep your guests never notice.</p><ul class="mini-list"><li>Event lawns prepared before October</li><li>Arrival courts and poolside planting</li><li>Water features and evening lighting</li></ul><a class="text-link" href="landscaping-services.html">Hotel landscaping <span>→</span></a></article>
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 29V17M16 17l-4-3M16 20l4-3M16 3c-6 0-9 5-9 9 0 4 3 7 9 7s9-3 9-7c0-4-3-9-9-9ZM10 29h12"/></svg></span><h3>Tree Transplantation &amp; Green Belts</h3></div><p>Trees moved to survive, documented to pass inspection.</p><ul class="mini-list"><li>155 trees moved for NHAI on NH&#8209;307</li><li>Survival assessed before work begins</li><li>Monthly photo reports for your file</li></ul><a class="text-link" href="horticulture-service.html">Tree transplantation <span>→</span></a></article>
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15ZM12 20a4 4 0 0 0 4 4"/></svg></span><h3>Drip &amp; Sprinkler Irrigation</h3></div><p>Water by measure, not by guesswork.</p><ul class="mini-list"><li>Drip for beds, sprinklers for lawns</li><li>Filters for borewell or STP water</li><li>Zoned, automated timers</li></ul><a class="text-link" href="horticulture-service.html">Irrigation services <span>→</span></a></article>
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 16 13 8l9 8M6 14v13h14V14M11 27v-6h4v6M25 27v-7M25 20c-3 0-4-3-4-5 0-3 2-5 4-6 2 1 4 3 4 6 0 2-1 5-4 5Z"/></svg></span><h3>Farmhouse Landscaping</h3></div><p>Your farmhouse, green and ready whenever you arrive.</p><ul class="mini-list"><li>Plants for NCR heat and Aravalli soils</li><li>Photo updates on WhatsApp</li><li>Lawns, orchards and driveways</li></ul><a class="text-link" href="landscaping-services.html">Farmhouse landscaping <span>→</span></a></article>
-          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 28V12h20v16M4 28h24M10 16h3v3h-3zM19 16h3v3h-3zM10 22h3v3h-3zM19 22h3v3h-3zM12 12c0-3 2-5 4-6 2 1 4 3 4 6M16 6V3"/></svg></span><h3>Terrace, Balcony &amp; Vertical Gardens</h3></div><p>A terrace garden that protects the roof beneath it.</p><ul class="mini-list"><li>Load and waterproofing checked by an engineer</li><li>Lightweight soil, drip on a timer</li><li>Self-draining pots, no standing water</li></ul><a class="text-link" href="landscaping-services.html">Terrace gardens <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 28V6h14v22M20 12h6v16M3 28h26M10 10h2M14 10h2M10 15h2M14 15h2M10 20h2M14 20h2M23 17h1M23 22h1"/></svg></span><h3>Office &amp; Corporate Premises</h3></div><p>We plan, plant and look after your office garden, so you do not have to.</p><ul class="mini-list"><li>Design, planting and regular upkeep</li><li>A photo report every month</li><li>Directly, or through your facility manager</li></ul><a class="text-link" href="landscaping-services.html">Office landscaping <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 23h22M7 23a9 9 0 0 1 18 0M16 14v-2M14 12h4M4 27h24"/></svg></span><h3>Hotel &amp; Resort Landscaping</h3></div><p>Lawns, courtyards and poolside planting, kept ready for your guests.</p><ul class="mini-list"><li>Event lawns ready before October</li><li>Planting for entrances and pool areas</li><li>Water features and garden lighting</li></ul><a class="text-link" href="landscaping-services.html">Hotel landscaping <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 29V17M16 17l-4-3M16 20l4-3M16 3c-6 0-9 5-9 9 0 4 3 7 9 7s9-3 9-7c0-4-3-9-9-9ZM10 29h12"/></svg></span><h3>Tree Transplantation &amp; Green Belts</h3></div><p>We move big trees so they live, and keep records for inspections.</p><ul class="mini-list"><li>155 trees moved for NHAI on NH&#8209;307</li><li>Each tree checked before we move it</li><li>A photo report every month for your records</li></ul><a class="text-link" href="horticulture-service.html">Tree transplantation <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15ZM12 20a4 4 0 0 0 4 4"/></svg></span><h3>Drip &amp; Sprinkler Irrigation</h3></div><p>Drip and sprinklers that give each plant the water it needs.</p><ul class="mini-list"><li>Drip for beds, sprinklers for lawns</li><li>Filters for borewell or STP water</li><li>Automatic timers, area by area</li></ul><a class="text-link" href="horticulture-service.html">Irrigation services <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 16 13 8l9 8M6 14v13h14V14M11 27v-6h4v6M25 27v-7M25 20c-3 0-4-3-4-5 0-3 2-5 4-6 2 1 4 3 4 6 0 2-1 5-4 5Z"/></svg></span><h3>Farmhouse Landscaping</h3></div><p>A farmhouse garden that stays green, even when you are away.</p><ul class="mini-list"><li>Plants that suit Delhi heat and local soil</li><li>Photo updates on WhatsApp</li><li>Lawns, fruit trees and driveways</li></ul><a class="text-link" href="landscaping-services.html">Farmhouse landscaping <span>→</span></a></article>
+          <article class="service-card"><div class="svc-head"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 28V12h20v16M4 28h24M10 16h3v3h-3zM19 16h3v3h-3zM10 22h3v3h-3zM19 22h3v3h-3zM12 12c0-3 2-5 4-6 2 1 4 3 4 6M16 6V3"/></svg></span><h3>Terrace, Balcony &amp; Vertical Gardens</h3></div><p>A terrace garden that keeps your roof safe.</p><ul class="mini-list"><li>An engineer checks load and waterproofing first</li><li>Light soil and timed drip watering</li><li>Pots that drain, so no standing water</li></ul><a class="text-link" href="landscaping-services.html">Terrace gardens <span>→</span></a></article>
         </div>
       </div>
     </section>
@@ -106,9 +179,9 @@
           <div><p class="eyebrow">Who we work with</p><h2>Whatever your dialect, <em>we answer in green.</em></h2></div>
         </div>
         <div class="paths-grid">
-          <article class="path-card" data-short="Builders"><p class="path-tag">Builders, contractors and infrastructure</p><h3>Built like the brochure, still alive after handover.</h3><ul class="mini-list"><li>Plantation planned around your EC tree count and green area</li><li>Item-wise BOQ pricing and defined maintenance periods</li><li>Empanelled with NHAI, DDA and Indian Railways</li></ul><a class="text-link" href="horticulture-service.html">See how we work <span>→</span></a></article>
-          <article class="path-card" data-short="Properties"><p class="path-tag">Offices, hotels and societies</p><h3>A maintenance contract you never have to chase.</h3><ul class="mini-list"><li>Monthly photo reports and written replacement terms</li><li>Irrigation set up to run on treated STP water</li><li>We work directly or under your FM partner</li></ul><a class="text-link" href="landscaping-services.html">See how we work <span>→</span></a></article>
-          <article class="path-card" data-short="Homes"><p class="path-tag">Homes and farmhouses</p><h3>Green and ready whenever you arrive.</h3><ul class="mini-list"><li>Plants chosen for Delhi heat and the water you have</li><li>Photo updates on WhatsApp while you are away</li><li>Load and waterproofing checked before a terrace goes in</li></ul><a class="text-link" href="landscaping-services.html">See how we work <span>→</span></a></article>
+          <article class="path-card" data-short="Builders"><p class="path-tag">Builders, contractors and infrastructure</p><h3>Gardens that match the brochure, and stay alive after handover.</h3><ul class="mini-list"><li>Planting planned for your EC tree count and green area</li><li>Item-wise quote (BOQ) and clear maintenance periods</li><li>Empanelled with NHAI, DDA and Indian Railways</li></ul><a class="text-link" href="horticulture-service.html">See how we work <span>→</span></a></article>
+          <article class="path-card" data-short="Properties"><p class="path-tag">Offices, hotels and societies</p><h3>Garden upkeep you do not have to chase.</h3><ul class="mini-list"><li>A photo report every month, and written terms for replacing plants</li><li>Irrigation that runs on treated STP water</li><li>We work with you directly or through your FM company</li></ul><a class="text-link" href="landscaping-services.html">See how we work <span>→</span></a></article>
+          <article class="path-card" data-short="Homes"><p class="path-tag">Homes and farmhouses</p><h3>Green and ready whenever you arrive.</h3><ul class="mini-list"><li>Plants picked for Delhi heat and the water you have</li><li>Photo updates on WhatsApp when you are away</li><li>We check load and waterproofing before building a terrace garden</li></ul><a class="text-link" href="landscaping-services.html">See how we work <span>→</span></a></article>
         </div>
       </div>
     </section>
@@ -119,12 +192,12 @@
         <div class="about-copy">
           <p class="eyebrow">About us</p>
           <h2 class="h2">Plant science meets <em>solid engineering.</em></h2>
-          <p>Laavin Infrascapes, formerly EGW Services, is led by a horticulturist with an M.Sc. in Botany and a civil and electrical engineer retired from the Delhi Development Authority, each with 30+ years in the field.</p>
-          <p>That is why our gardens last. The planting is chosen by a botanist, and the waterproofing, drainage and irrigation underneath are checked by an engineer. The same team has delivered NHAI highway projects and brings that discipline to every terrace, hotel, office and farmhouse.</p>
+          <p>Laavin Infrascapes used to be called EGW Services. Two people lead our work: a horticulturist with an M.Sc. in Botany, and a civil and electrical engineer who retired from the Delhi Development Authority (DDA). Each has more than 30 years of experience.</p>
+          <p>That is why our gardens last. The botanist chooses the plants. The engineer checks the waterproofing, drainage and irrigation below them. We bring the same care from our NHAI highway work to every terrace, hotel, office and farmhouse.</p>
           <ul class="check-list">
-            <li><span class="check">✓</span><span><strong>Planned for survival.</strong> Species, soil and watering chosen for each site.</span></li>
-            <li><span class="check">✓</span><span><strong>One team, design to maintenance.</strong> No hand-offs between contractors.</span></li>
-            <li><span class="check">✓</span><span><strong>Water-wise by design.</strong> Irrigation planned in from the start.</span></li>
+            <li><span class="check">✓</span><span><strong>Planned to survive.</strong> We choose the plants, soil and watering for each site.</span></li>
+            <li><span class="check">✓</span><span><strong>One team from design to upkeep.</strong> No passing the job between contractors.</span></li>
+            <li><span class="check">✓</span><span><strong>Saves water.</strong> We plan the irrigation from day one.</span></li>
           </ul>
           <a class="btn" href="about.html">Meet the Team <span>↗</span></a>
         </div>
@@ -155,9 +228,9 @@
           <div class="project-feature-photo"><img src="assets/images/blog/blog-1.webp" srcset="assets/images/blog/blog-1-800.webp 800w, assets/images/blog/blog-1.webp 1200w" sizes="(max-width: 760px) 100vw, 600px" alt="Mature tree being lifted by crane for transplantation" width="1200" height="900" loading="lazy"></div>
           <div class="project-feature-body">
             <span class="project-tag">Featured project</span>
-            <p class="project-metric">155<span>mature trees relocated, not felled</span></p>
+            <p class="project-metric">155<span>mature trees moved, not cut down</span></p>
             <h3>Tree Transplantation, NH&#8209;307</h3>
-            <p>Each tree was surveyed, prepared, lifted and replanted alongside the road contractor's schedule, with aftercare until it re-established.</p>
+            <p>We checked each tree, prepared it, lifted it and replanted it, working around the road contractor's schedule. Then we looked after each tree until it grew new roots.</p>
             <dl class="project-facts">
               <div><dt>Client</dt><dd>NHAI, via Vasistha Construction Pvt. Ltd.</dd></div>
               <div><dt>Scope</dt><dd>Survey, transplantation and aftercare</dd></div>
@@ -186,10 +259,10 @@
           <div class="process-side"><a class="btn btn-light" href="contact.html">Book a Site Visit <span>↗</span></a></div>
         </div>
         <ol class="process-steps">
-          <li class="process-step"><span class="step-num">01</span><div><h3>Site visit</h3><p>We visit, test the soil, check sun, water and drainage, and listen to what you need.</p></div></li>
-          <li class="process-step"><span class="step-num">02</span><div><h3>Design and estimate</h3><p>Drawings, a plant list and a clear itemised estimate, so you know the cost before work starts.</p></div></li>
-          <li class="process-step"><span class="step-num">03</span><div><h3>Build</h3><p>Our crews plant, build and install irrigation, with one project manager keeping you updated.</p></div></li>
-          <li class="process-step"><span class="step-num">04</span><div><h3>Aftercare</h3><p>Scheduled care after handover, monthly photo reports, and failed plants replaced on written terms.</p></div></li>
+          <li class="process-step"><span class="step-num">01</span><div><h3>Site visit</h3><p>We visit your site, test the soil and check sunlight, water and drainage. We listen to what you need.</p></div></li>
+          <li class="process-step"><span class="step-num">02</span><div><h3>Design and estimate</h3><p>You get drawings, a plant list and an item-wise estimate. You know the cost before we start.</p></div></li>
+          <li class="process-step"><span class="step-num">03</span><div><h3>Build</h3><p>Our team plants, builds and installs the irrigation. One project manager keeps you updated.</p></div></li>
+          <li class="process-step"><span class="step-num">04</span><div><h3>Aftercare</h3><p>We look after the garden after handover, send a photo report every month and replace failed plants on written terms.</p></div></li>
         </ol>
       </div>
     </section>
@@ -197,12 +270,12 @@
     <section class="credentials" id="credentials">
       <div class="container">
         <div class="credential-panel">
-          <div><p class="eyebrow">Credentials</p><h2 class="h2">Evidence you can check before you hire us.</h2><p>Every project on this site was delivered by our team. Ask for the paperwork and we will share it with you.</p><a class="cap-link" href="assets/docs/laavin-infrascapes-capability-sheet.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download our capability sheet (PDF)</a></div>
+          <div><p class="eyebrow">Credentials</p><h2 class="h2">Proof you can check before you hire us.</h2><p>Our own team delivered every project on this site. Ask for the papers and we will share them.</p><a class="cap-link" href="assets/docs/laavin-infrascapes-capability-sheet.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download our capability sheet (PDF)</a></div>
           <div class="credential-list">
-            <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Empanelled with NHAI, DDA and Indian Railways<small>Approved to work on public projects for all three.</small></div></div>
+            <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Empanelled with NHAI, DDA and Indian Railways<small>We are approved to work on public projects for all three.</small></div></div>
             <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Work orders and completion certificates<small>For our NHAI, Delhi Airport, school and landfill projects.</small></div></div>
-            <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Client references<small>Past clients who are happy to take your call.</small></div></div>
-            <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Monthly photo reports, written replacement terms<small>You see the work, and failed plants are replaced on agreed terms.</small></div></div>
+            <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Client references<small>Past clients who are happy to talk to you.</small></div></div>
+            <div class="credential-item"><span class="cred-check" aria-hidden="true">✓</span><div>Monthly photo reports, written replacement terms<small>You see the work every month. Plants that fail are replaced on agreed terms.</small></div></div>
           </div>
         </div>
       </div>
@@ -222,9 +295,25 @@
       </div>
     </section>
 
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Questions</p><h2>Answers to <em>common questions.</em></h2></div>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>Which areas do you work in?</summary><p>We are based in New Ashok Nagar, Delhi, and work across Delhi NCR. We also take on larger projects outside Delhi, such as moving 80 trees for Indian Railways in Ujjain.</p></details>
+          <details class="faq-item"><summary>Can you move a big tree instead of cutting it down?</summary><p>Yes. We check the tree, prepare its roots, lift it with a crane and replant it. Then we water and check it until it grows new roots. On NH-307 we moved 155 mature trees for an NHAI project.</p></details>
+          <details class="faq-item"><summary>Do you look after the garden after it is built?</summary><p>Yes. We offer regular maintenance. You get a photo report every month, and we replace plants that fail on terms agreed in writing.</p></details>
+          <details class="faq-item"><summary>Can my terrace hold a garden?</summary><p>Often, yes, but we check first. Our engineer checks the roof load and waterproofing before any work starts. We use light soil and drip watering to keep the weight and water low.</p></details>
+          <details class="faq-item"><summary>Do you work with facility management (FM) companies?</summary><p>Yes. You can hire us directly, or we can work as the garden specialist under your FM company contract.</p></details>
+          <details class="faq-item"><summary>How do I get a price?</summary><p>Book a site visit, or send photos of your site on WhatsApp to (+91) 98115 11558. We reply within 24 hours. After the site visit, you get drawings and an item-wise estimate.</p></details>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contact">
       <div class="container contact-grid">
-        <div class="contact-copy"><p class="eyebrow">Get in touch</p><h2 class="h2">Planning a garden, terrace or landscape?</h2><p>Send a few photos of your site on WhatsApp or fill in the form. We reply within 24 hours with ideas and an estimate.</p>
+        <div class="contact-copy"><p class="eyebrow">Get in touch</p><h2 class="h2">Planning a garden, terrace or landscape?</h2><p>Send us a few photos of your site on WhatsApp, or fill in the form. We reply within 24 hours with ideas and a rough cost.</p>
           <a class="btn btn-wa" href="https://wa.me/919811511558" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.03c-.25.69-1.44 1.32-1.98 1.37-.51.05-1 .24-3.36-.7-2.84-1.12-4.63-4.04-4.77-4.23-.14-.19-1.14-1.52-1.14-2.9 0-1.38.72-2.06.98-2.34.25-.28.55-.35.74-.35l.53.01c.17.01.4-.06.62.48.25.6.84 2.06.91 2.21.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.15.46.12.63-.07.17-.19.73-.85.92-1.14.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.12.07.69-.18 1.38Z"/></svg>Chat on WhatsApp</a>
           <div class="contact-detail"><strong>Call</strong><a href="tel:+919811511558">(+91) 98115 11558</a></div>
           <div class="contact-detail"><strong>Email</strong><a href="mailto:connect@laavinfra.com">connect@laavinfra.com</a></div>
@@ -262,7 +351,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" aria-label="Laavin Infrascapes homepage"><img src="assets/images/logo/logo-white.png" alt="Laavin Infrascapes" width="150" height="56" loading="lazy"></a>
-          <p>Landscape design, terrace gardens and irrigation for hotels, offices and farmhouses, led by a botanist and a retired DDA engineer. Formerly EGW Services.</p>
+          <p>We design, build and look after gardens, trees and irrigation across Delhi NCR. Led by a botanist and a retired DDA engineer. Formerly EGW Services.</p>
         </div>
         <div class="footer-col">
           <h2>Company</h2>
