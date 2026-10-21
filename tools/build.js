@@ -372,13 +372,13 @@ built.push(page({
         <div>
           <p class="eyebrow">Landscaping<span class="hide-sm"> · Terrace gardens</span> · Irrigation</p>
           <h1>Gardens and landscapes, <em>planted to survive.</em></h1>
-          <p class="hero-copy">We design, build and look after gardens and landscapes across Delhi NCR. A botanist picks the plants and an engineer checks the soil, water and drainage, so your garden stays green for years.</p>
+          <p class="hero-copy">For offices, hotels, builders, societies and homes across Delhi NCR. Planned by a botanist and an engineer to survive the heat, the water and the years after handover.</p>
           <div class="hero-actions"><a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a><a class="btn btn-outline" href="#projects">See Our Projects <span>↓</span></a></div>
           <div class="micro-trust"><span class="dot"></span><span>Empanelled with NHAI, DDA and Indian Railways</span></div>
         </div>
         <div class="hero-visual">
           <div class="hero-photo">${heroPhotos()}</div>
-          <div class="photo-label"><strong>Survival is part of the scope</strong><span>We plan the plants, soil and watering for every site, and keep checking after handover.</span></div>
+          <div class="photo-label"><strong>Survival is part of the scope</strong><span>Species, soil, watering and aftercare are planned for every site, and tracked after handover.</span></div>
         </div>
       </div>
     </section>
