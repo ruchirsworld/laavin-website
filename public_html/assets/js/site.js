@@ -200,5 +200,11 @@
 // Services sub-header: on phones, scroll the current service into view
 (function () {
   var cur = document.querySelector('.svc-bar [aria-current="page"]');
-  if (cur) cur.parentNode.scrollLeft = cur.offsetLeft - 16;
+  var bar = document.querySelector('.svc-bar .container');
+  if (!bar) return;
+  if (cur) bar.scrollLeft = cur.offsetLeft - 16;
+  // Drop the right-edge fade once the bar is scrolled to its end
+  var edge = function () { bar.classList.toggle('at-end', bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2); };
+  bar.addEventListener('scroll', edge, { passive: true });
+  edge();
 })();

@@ -529,7 +529,7 @@ const SERVICES = [
     description: 'Terrace, balcony and vertical gardens, hotel and resort landscaping, office premises, farmhouse gardens, sports turf and landscape maintenance in Delhi NCR.',
     eyebrow: 'Landscape services', h1: 'Landscapes for terraces, balconies, hotels, offices <em>and farmhouses.</em>',
     lead: 'Whether it is a rooftop, a hotel arrival court, an office campus or a farmhouse estate, we design landscapes that look good on opening day and still look good five years on.',
-    photo: { src: 'assets/images/land.webp', alt: 'Landscaped grounds with lawns and palms' },
+    photo: { src: 'assets/images/services/landscaping-1.webp', alt: 'Palm trees and a wide lawn in front of a hotel building' },
     intro: 'We design, build and maintain, so one team is accountable for the result. Every layout is planned around sun, shade, drainage, water and how people actually use the space, and one project manager coordinates the work from start to finish.',
     items: [
       ['Terrace and rooftop gardens', 'Waterproofing, drainage layers, lightweight soil and hardy plants that turn an unused roof into green space people use. Structure and load are checked by our engineer before work starts.'],
@@ -552,7 +552,7 @@ const SERVICES = [
     description: 'Mature tree transplantation, median and avenue plantation, green belts and slope turfing, with NHAI, Indian Railways and Delhi Airport projects delivered.',
     eyebrow: 'Horticultural services', h1: 'Trees and planting for <em>sites of every size.</em>',
     lead: 'From mature tree transplantation on a national highway to green belts around industrial sites, our horticulture team plans the living part of every project.',
-    photo: { src: 'assets/images/blog/blog-1.webp', alt: 'A large mature tree with a wide, spreading canopy' },
+    photo: { src: 'assets/images/services/horticulture-1.webp', alt: 'Highway lined with trees on both sides' },
     intro: 'Our horticulture team is led by a botanist with 30+ years of field experience. Species, soil treatment and watering are planned for each site.',
     items: [
       ['Mature tree transplantation', 'When construction puts mature trees in the way, we move them instead of felling them. We survey and prune each tree, dig and protect the root ball, lift and transport it, replant it at the new site, and stay on for watering and feeding.', 'On NH-307 we relocated 155 mature roadside trees for an NHAI widening project.'],
@@ -570,7 +570,7 @@ const SERVICES = [
     description: 'Water features, stone paving, landscape lighting, fencing, pergolas and gazebos for hotels, offices and farmhouses, overseen by a former DDA engineer.',
     eyebrow: 'Hardscaping services', h1: 'Built elements that last as long as <em>the landscape.</em>',
     lead: 'Paths, water features, lighting and shade structures for hotels, offices and farmhouses, built for heavy footfall, harsh summers and the monsoon.',
-    photo: { src: 'assets/images/hardscaping.webp', alt: 'Stone-paved courtyard with pergola, cascade and path lighting' },
+    photo: { src: 'assets/images/services/hardscaping-1.webp', alt: 'Brick garden path lit by low lights at night' },
     intro: 'Our hardscape work is overseen by a civil and electrical engineer with 30+ years at the Delhi Development Authority, so structure, drainage and wiring are right before the finishes go on.',
     items: [
       ['Water features and fountains', 'Fountains, cascades and reflecting pools with efficient recirculating pumps and underwater lighting, designed to be easy to clean and maintain.'],
@@ -590,7 +590,7 @@ const SERVICES = [
     description: 'Drip and sprinkler irrigation for gardens, terraces, farmhouses, campuses and highways in Delhi NCR, designed, installed and serviced by one team.',
     eyebrow: 'Irrigation services', h1: 'Water by measure, <em>not by guesswork.</em>',
     lead: 'Drip and sprinkler systems for terraces, gardens, farmhouses, campuses and long highway stretches, planned in from the start so every plant gets the water it needs.',
-    photo: { src: 'assets/images/horti.webp', alt: 'Misting irrigation running over rows of nursery plants' },
+    photo: { src: 'assets/images/services/irrigation-1.webp', alt: 'Sprinklers watering a lawn between trees at sunset' },
     intro: 'We design, install and service the system, so one team answers for it. Each layout is planned around the plants, the soil and the water you have, whether that is borewell, municipal supply or treated STP water.',
     items: [
       ['Drip and sprinkler irrigation', 'Automated drip and sprinkler systems that water each plant when it needs it, cutting water use and labour on terraces, gardens, farmhouses and long highway stretches. Drip for beds, sprinklers for lawns.'],
@@ -644,32 +644,62 @@ const serviceLinks = active => `<ul class="side-links">${SERVICES.map(s => `<li>
 
 const sideContact = (title, text) => `<div class="side-card dark"><h2>Talk to our team</h2><p class="side-title">${title}</p><p>${text}</p><ul class="side-contact"><li><a href="tel:${TEL}">${PHONE}</a></li><li><a href="mailto:${EMAIL}">${EMAIL}</a></li></ul><p style="margin:18px 0 0"><a class="btn btn-light" href="contact.html">Book a Site Visit <span>↗</span></a></p></div>`;
 
+// Service page chapters: items grouped by theme, each with one photo. Numbers are item positions in SERVICES.
+const img = (name, alt) => ({ src: `assets/images/services/${name}.webp`, alt });
+const CHAPTERS = {
+  landscaping: [
+    { title: 'Terraces and balconies', items: [0, 1], photo: img('landscaping-3', 'Rooftop garden with trees in planters and a paved walkway') },
+    { title: 'Green walls and planting design', items: [2, 6], photo: img('landscaping-4', 'Lush vertical garden wall in a building lobby') },
+    { title: 'Hotels, offices and farmhouses', items: [3, 4, 5], photo: img('landscaping-1', 'Palm trees and a wide lawn in front of a hotel building') },
+    { title: 'Sports turf and maintenance', items: [7, 8], photo: img('landscaping-2', 'Gardeners mowing a lawn beside a row of hedges') },
+  ],
+  horticulture: [
+    { title: 'Mature tree transplantation', items: [0], photo: img('horticulture-3', 'Young trees planted with support stakes in an open park') },
+    { title: 'Highway medians and avenues', items: [1], photo: img('horticulture-1', 'Highway lined with trees on both sides') },
+    { title: 'Green belts and slope turfing', items: [2, 3], photo: img('horticulture-2', 'Tall trees with spreading canopies along a road') },
+  ],
+  hardscaping: [
+    { title: 'Paths and paving', items: [1], photo: img('hardscaping-3', 'Worker laying paving bricks by hand') },
+    { title: 'Water features and focal points', items: [0, 5], photo: img('hardscaping-2', 'Round fountain set in a landscaped garden') },
+    { title: 'Landscape lighting', items: [2], photo: img('hardscaping-1', 'Brick garden path lit by low lights at night') },
+    { title: 'Shade structures and fencing', items: [4, 3], photo: img('hardscaping-4', 'Pergola over a patio seating area beside a lawn') },
+  ],
+  irrigation: [
+    { title: 'Drip and sprinkler systems', items: [0], photo: img('irrigation-1', 'Sprinklers watering a lawn between trees at sunset') },
+    { title: 'Timers and water sources', items: [1, 2], photo: img('irrigation-4', 'Sprinkler watering a lawn under a tree') },
+    { title: 'Drip for terraces and balconies', items: [3], photo: img('irrigation-3', 'Drip pipe beside a lettuce seedling in soil') },
+    { title: 'Servicing', items: [4], photo: img('irrigation-2', 'Drip line running past a young seedling') },
+  ],
+};
+const chapter = (s, c, i) => `          <article class="chapter${i % 2 ? ' flip' : ''}">
+            <div class="chapter-photo"><img src="${c.photo.src}" alt="${esc(c.photo.alt)}" width="1200" height="800" loading="lazy"></div>
+            <div class="chapter-copy">
+              <p class="chapter-num">${String(i + 1).padStart(2, '0')}</p>
+              <h2>${c.title}</h2>
+${c.items.map(n => { const [h, p, proof] = s.items[n]; return `              <div class="chapter-item">${c.items.length > 1 ? `<h3>${h}</h3>` : ''}<p>${p}</p>${proof ? `<div class="proof-callout"><b>Delivered:</b> ${proof}</div>` : ''}</div>`; }).join('\n')}
+            </div>
+          </article>`;
+
 for (const s of SERVICES) {
   const trail = [['Home', 'index.html'], ['Services', 'services.html'], [esc(s.short)]];
   built.push(page({
     file: s.file, active: s.key, title: s.title, description: s.description,
     schema: [ORG_SCHEMA, breadcrumbSchema(trail), { '@context': 'https://schema.org', '@type': 'Service', name: s.short, description: s.description, serviceType: s.items.map(i => i[0]), provider: { '@id': SITE + '#business' }, areaServed: { '@type': 'AdministrativeArea', name: 'Delhi NCR' }, url: SITE + s.file }],
-    body: `${svcBar(s.key)}${pageHero({ trail, eyebrow: s.eyebrow, h1: s.h1, lead: s.lead, photo: s.photo, actions: `<a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a>` })}
+    body: `${svcBar(s.key)}${pageHero({ trail, eyebrow: s.eyebrow, h1: s.h1, lead: s.lead, actions: `<a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a>` })}
 
-    <section class="detail">
-      <div class="container detail-grid">
-        <div>
-          <p class="eyebrow">What we deliver</p>
-          <h2 class="h2" style="margin-bottom:16px">${s.listTitle}</h2>
-          <p class="detail-intro">${s.intro}</p>
-          <div class="detail-list">
-${s.items.map(([h, p, proof], i) => `            <div class="detail-item"><div class="num">${String(i + 1).padStart(2, '0')}</div><div><h3>${h}</h3><p>${p}</p>${proof ? `<div class="proof-callout"><b>Delivered:</b> ${proof}</div>` : ''}</div></div>`).join('\n')}
-          </div>
-          <div class="cta-box"><h2>${s.cta[0]}</h2><p>${s.cta[1]}</p><a class="btn" href="contact.html">${s.cta[2]} <span>↗</span></a></div>
+    <section class="chapters">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">What we deliver</p><h2>${s.listTitle}</h2></div>
+          <p>${s.intro}</p>
         </div>
-        <aside class="sidebar" aria-label="More services">
-          <div class="side-card"><h2>All services</h2>${serviceLinks(s.key)}</div>
-          ${sideContact(s.side[0], s.side[1])}
-        </aside>
+${CHAPTERS[s.key].map((c, i) => chapter(s, c, i)).join('\n')}
       </div>
     </section>
 
-${processSection('')}`,
+${processSection('')}
+
+${ctaBand(s.cta[0], s.cta[1], s.cta[2])}`,
   }));
 }
 
