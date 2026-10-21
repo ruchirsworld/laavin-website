@@ -102,14 +102,18 @@ function footer() {
 }
 
 // Where we work: based in Delhi, projects across North and Central India
+const STATES = ['Haryana', 'Punjab', 'Uttar Pradesh', 'Uttarakhand', 'Himachal Pradesh', 'Rajasthan', 'Madhya Pradesh', 'Chhattisgarh'];
 const AREA_SERVED = [
   { '@type': 'City', name: 'Delhi' },
   { '@type': 'AdministrativeArea', name: 'Delhi NCR' },
+  ...STATES.map(name => ({ '@type': 'State', name })),
   { '@type': 'Place', name: 'North India' },
   { '@type': 'Place', name: 'Central India' },
 ];
 // '11 Oct 2026' to '2026-10-11'
 const isoDate = d => { const t = new Date(d + ' UTC'); return t.toISOString().slice(0, 10); };
+// Articles are credited to our horticulturist
+const AUTHOR = { '@type': 'Person', name: 'Alka Jain', jobTitle: 'Horticulturist', description: 'Horticulturist with an M.Sc. in Botany and 30+ years of experience', worksFor: { '@id': SITE + '#business' }, url: SITE + 'about.html' };
 const ORG_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -311,24 +315,25 @@ const heroPhotos = () => HERO_PHOTOS.map((p, i) => `<img src="${p.src}" alt="${e
 
 // Homepage questions. Answers use only facts stated elsewhere on the site.
 const FAQ = [
-  ['Which areas do you work in?', 'We are based in New Ashok Nagar, Delhi. We work across Delhi NCR, North India and Central India. For example, we moved 80 trees for Indian Railways in Ujjain, Madhya Pradesh.'],
+  ['Which areas do you work in?', 'We are based in New Ashok Nagar, Delhi. We work across Delhi NCR, North India and Central India, including Haryana, Punjab, Uttar Pradesh, Uttarakhand, Himachal Pradesh, Rajasthan, Madhya Pradesh and Chhattisgarh. For example, we moved 80 trees for Indian Railways in Ujjain, Madhya Pradesh.'],
   ['Can you move a big tree instead of cutting it down?', 'Yes. We check the tree, prepare its roots, lift it with a crane and replant it. Then we water and check it until it grows new roots. On NH-307 we moved 155 mature trees for an NHAI project.'],
   ['Do you look after the garden after it is built?', 'Yes. We offer regular maintenance. You get a photo report every month, and we replace plants that fail on terms agreed in writing.'],
   ['Can my terrace hold a garden?', 'Often, yes, but we check first. Our engineer checks the roof load and waterproofing before any work starts. We use light soil and drip watering to keep the weight and water low.'],
   ['Do you work with facility management (FM) companies?', 'Yes. You can hire us directly, or we can work as the garden specialist under your FM company contract.'],
   ['How do I get a price?', 'Book a site visit, or send photos of your site on WhatsApp to ' + PHONE + '. We reply within 24 hours. After the site visit, you get drawings and an item-wise estimate.'],
 ];
-const faqSection = () => `    <section class="faq" id="faq">
+const faqSection = (list = FAQ, heading = 'Answers to <em>common questions.</em>') => `    <section class="faq" id="faq">
       <div class="container">
         <div class="section-head">
-          <div><p class="eyebrow">Questions</p><h2>Answers to <em>common questions.</em></h2></div>
+          <div><p class="eyebrow">Questions</p><h2>${heading}</h2></div>
         </div>
         <div class="faq-list">
-${FAQ.map(([q, a]) => `          <details class="faq-item"><summary>${q}</summary><p>${a}</p></details>`).join('\n')}
+${list.map(([q, a]) => `          <details class="faq-item"><summary>${q}</summary><p>${a}</p></details>`).join('\n')}
         </div>
       </div>
     </section>`;
-const FAQ_SCHEMA = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+const faqSchema = list => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: list.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
+const FAQ_SCHEMA = faqSchema(FAQ);
 
 // Homepage About photo. Replace with a real photo of the team when one is available.
 const ABOUT_PHOTO = { src: 'assets/images/about/about-nursery.webp', alt: 'Rows of potted plants along a path in a plant nursery in Delhi' };
@@ -689,11 +694,35 @@ ${c.items.map(n => { const [h, p, proof] = s.items[n]; return `              <di
             </div>
           </article>`;
 
+// Questions on each service page, answered only with facts stated elsewhere on the site
+const SERVICE_FAQ = {
+  landscaping: [
+    ['Do you check if my terrace can take the weight?', 'Yes. Our engineer checks the roof load and waterproofing before any work starts. We use light soil and drip watering to keep the weight and water low.'],
+    ['Do you maintain the garden after it is built?', 'Yes. Our teams handle pruning, mowing, feeding and pest control on a schedule agreed with you. You get a photo report every month, and we replace plants that fail on terms agreed in writing.'],
+    ['Can you work under our facility management company?', 'Yes. You can hire us directly, or we can work as the landscape specialist under your FM company contract.'],
+  ],
+  horticulture: [
+    ['When is the best time to move a big tree?', 'In north and central India, the monsoon is usually best. The air is humid, so the tree loses less water while its roots recover. Peak summer is the worst time.'],
+    ['How do you move a mature tree?', 'We survey and prune the tree, prepare and protect the root ball, lift it with a crane and replant it at the new site. Then we stay on for watering and feeding while it grows new roots.'],
+    ['Do you take on projects outside Delhi?', 'Yes. We work across North and Central India. For example, we moved 80 trees for Indian Railways in Ujjain and 155 mature trees on NH-307 for NHAI.'],
+  ],
+  hardscaping: [
+    ['Who checks the structure, drainage and wiring?', 'Our hardscape work is overseen by a civil and electrical engineer with 30+ years at the Delhi Development Authority. Structure, drainage and wiring are checked before the finishes go on.'],
+    ['Can you build the hardscape and the planting together?', 'Yes. Paving, water features, lighting and planting are planned and built by one team, so you do not have to coordinate separate contractors.'],
+    ['How do I get an estimate?', 'Send us your drawings or a few photos of the site. Our engineer reviews the scope and prepares a detailed, itemised estimate.'],
+  ],
+  irrigation: [
+    ['Can drip irrigation run on borewell or STP water?', 'Yes. We fit filters chosen for your water source, so borewell or treated STP water can run through the system without clogging the lines.'],
+    ['Drip or sprinklers: which do I need?', 'Often both. Drip suits beds, shrubs, trees and pots, and sprinklers suit lawns. We split the site into zones, each on its own timer.'],
+    ['Do you service the systems you install?', 'Yes. We clean filters, flush lines and reset timers as the seasons change.'],
+  ],
+};
+
 for (const s of SERVICES) {
   const trail = [['Home', 'index.html'], ['Services', 'services.html'], [esc(s.short)]];
   built.push(page({
     file: s.file, active: s.key, title: s.title, description: s.description,
-    schema: [ORG_SCHEMA, breadcrumbSchema(trail), { '@context': 'https://schema.org', '@type': 'Service', name: s.short, description: s.description, serviceType: s.items.map(i => i[0]), provider: { '@id': SITE + '#business' }, areaServed: AREA_SERVED, url: SITE + s.file }],
+    schema: [ORG_SCHEMA, breadcrumbSchema(trail), { '@context': 'https://schema.org', '@type': 'Service', name: s.short, description: s.description, serviceType: s.items.map(i => i[0]), provider: { '@id': SITE + '#business' }, areaServed: AREA_SERVED, url: SITE + s.file }, faqSchema(SERVICE_FAQ[s.key])],
     body: `${svcBar(s.key)}${pageHero({ trail, eyebrow: s.eyebrow, h1: s.h1, lead: s.lead, actions: `<a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a>` })}
 
     <section class="chapters">
@@ -705,6 +734,8 @@ for (const s of SERVICES) {
 ${CHAPTERS[s.key].map((c, i) => chapter(s, c, i)).join('\n')}
       </div>
     </section>
+
+${faqSection(SERVICE_FAQ[s.key], `Questions about <em>${{ landscaping: 'landscaping', horticulture: 'tree work', hardscaping: 'hardscaping', irrigation: 'irrigation' }[s.key]}.</em>`)}
 
 ${processSection('')}
 
@@ -743,7 +774,7 @@ for (const a of articles) {
     schema: [{
       '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.title.replace(/&amp;/g, '&'), description: a.description,
       image: absUrl(a.image), datePublished: isoDate(a.date), dateModified: a.draft ? '2026-10-10' : '2026-10-21',
-      author: { '@type': 'Organization', name: BRAND, url: SITE },
+      author: AUTHOR,
       publisher: { '@type': 'Organization', name: BRAND, logo: { '@type': 'ImageObject', url: SITE + 'assets/images/logo/logo-black.png' } },
       mainEntityOfPage: SITE + a.slug + '.html',
     }, breadcrumbSchema(trail)],
@@ -751,7 +782,7 @@ for (const a of articles) {
           ${crumbs(trail)}
           <p class="eyebrow">${a.category}</p>
           <h1>${a.title}</h1>
-          <div class="article-meta"><span>${BRAND}</span><span><time datetime="${isoDate(a.date)}">${a.date}</time></span><span>${a.readTime}</span></div>
+          <div class="article-meta"><span>By ${AUTHOR.name}, ${AUTHOR.jobTitle}</span><span><time datetime="${isoDate(a.date)}">${a.date}</time></span><span>${a.readTime}</span></div>
     </div></section>
 
     <section class="detail">
