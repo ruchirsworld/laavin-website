@@ -624,14 +624,11 @@ built.push(page({
   title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
   description: 'Landscaping, tree transplantation and green belts, hardscaping and drip irrigation from one accountable team in Delhi NCR.',
   schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
-  body: `${svcBar('services')}${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain, so you deal with one accountable team.' })}
+  body: `${svcBar('services')}${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'From a rooftop terrace to a hotel estate or a farmhouse, we design, build, irrigate and maintain. Pick the service closest to your scope. Many projects combine two or three, all delivered by the same team.' })}
 
     <section class="services svc-lines">
       <div class="container">
-        <div class="section-head">
-          <div><p class="eyebrow">Our services</p><h2>Four service lines, <br>one team.</h2></div>
-          <p>Pick the service closest to your scope. Many projects combine two or three, all delivered by the same team.</p>
-        </div>
+        <h2 class="sr-only">Our four service lines</h2>
         <div class="service-grid svc-four">
 ${SERVICES.map(serviceCard).join('\n')}
         </div>
