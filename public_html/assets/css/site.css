@@ -723,3 +723,15 @@ label{font-size:13px}.nav-links{font-size:15px}.btn{font-size:15px;min-height:48
 .faq-item[open] summary:after{content:"\2212"}
 .faq-item p{margin:0 0 18px;max-width:720px;font-size:16px;color:var(--body)}
 @media(max-width:760px){.faq-item summary{font-size:16px}}
+/* Homepage service cards: compact on tablets and desktops (phones use the tap-to-open list) */
+@media(min-width:761px){
+  .svc-acc>.service-card{padding:20px 22px 14px}
+  .svc-acc .svc-icon{width:42px;height:42px}
+  .svc-acc .svc-icon svg{width:22px;height:22px}
+  .svc-acc .svc-head{gap:12px;margin-bottom:10px}
+  .svc-acc .service-card h3{font-size:17px}
+  .svc-acc .service-card>p{font-size:14px;line-height:1.5;margin-bottom:10px}
+  .svc-acc .mini-list{gap:2px;margin-bottom:8px}
+  .svc-acc .mini-list li{font-size:14px;line-height:1.55}
+  .svc-acc .text-link{min-height:36px;padding-top:2px}
+}
