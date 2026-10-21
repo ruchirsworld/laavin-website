@@ -133,20 +133,24 @@
     });
   })();
 
-  // "Who we work with" on phones: tabs show one audience card at a time.
+  // "Who we work with": tabs show one audience card at a time, on every screen size.
   (function () {
     var grid = document.querySelector('.paths-grid');
     if (!grid) return;
     var cards = grid.querySelectorAll('.path-card');
-    var mq = window.matchMedia('(max-width: 760px)');
     var bar = document.createElement('div');
     bar.className = 'path-tabs';
+    bar.setAttribute('role', 'tablist');
+    bar.setAttribute('aria-label', 'Who we work with');
     var tabs = [];
     cards.forEach(function (card, i) {
       card.id = card.id || 'path-' + (i + 1);
       var b = document.createElement('button');
       b.type = 'button';
       b.id = card.id + '-tab';
+      b.setAttribute('role', 'tab');
+      card.setAttribute('role', 'tabpanel');
+      card.setAttribute('aria-labelledby', b.id);
       b.textContent = card.getAttribute('data-short') || card.querySelector('.path-tag').textContent;
       b.setAttribute('aria-controls', card.id);
       b.addEventListener('click', function () { select(i); });
@@ -164,18 +168,8 @@
       cards.forEach(function (c, i) { c.classList.toggle('active', i === n); });
       tabs.forEach(function (t, i) { t.setAttribute('aria-selected', String(i === n)); t.tabIndex = i === n ? 0 : -1; });
     }
-    function sync() {
-      var on = mq.matches;
-      grid.classList.toggle('tabbed', on);
-      if (on) bar.setAttribute('role', 'tablist'); else bar.removeAttribute('role');
-      tabs.forEach(function (t) { if (on) t.setAttribute('role', 'tab'); else t.removeAttribute('role'); });
-      cards.forEach(function (c, i) {
-        if (on) { c.setAttribute('role', 'tabpanel'); c.setAttribute('aria-labelledby', tabs[i].id); }
-        else { c.removeAttribute('role'); c.removeAttribute('aria-labelledby'); }
-      });
-    }
-    select(0); sync();
-    if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync);
+    grid.classList.add('tabbed');
+    select(0);
   })();
 
   // Service pages on phones: each numbered item opens and closes, one at a time.
