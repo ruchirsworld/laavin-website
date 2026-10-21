@@ -76,7 +76,7 @@ function footer() {
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" aria-label="${BRAND} homepage"><img src="assets/images/logo/logo-white.png" alt="${BRAND}" width="150" height="56" loading="lazy"></a>
-          <p>Landscape design, terrace gardens and irrigation for hotels, offices and farmhouses, led by a botanist and a retired DDA engineer.</p>
+          <p>Landscape design, terrace gardens and irrigation for hotels, offices and farmhouses, led by a botanist and a retired DDA engineer. Based in Delhi, working across North and Central India.</p>
         </div>
         <div class="footer-col">
           <h2>Company</h2>
@@ -101,19 +101,28 @@ function footer() {
   <nav class="mobile-bar" aria-label="Quick contact"><a class="mb-wa" href="https://wa.me/${WA}?text=${encodeURIComponent('Hello Laavin Infrascapes, I would like to enquire about your services.')}" target="_blank" rel="noopener">${ICON_WA}WhatsApp</a><a href="tel:${TEL}">${ICON_PHONE}Call</a><a class="mb-book" href="contact.html">Book a Site Visit</a></nav>`;
 }
 
+// Where we work: based in Delhi, projects across North and Central India
+const AREA_SERVED = [
+  { '@type': 'City', name: 'Delhi' },
+  { '@type': 'AdministrativeArea', name: 'Delhi NCR' },
+  { '@type': 'Place', name: 'North India' },
+  { '@type': 'Place', name: 'Central India' },
+];
+// '11 Oct 2026' to '2026-10-11'
+const isoDate = d => { const t = new Date(d + ' UTC'); return t.toISOString().slice(0, 10); };
 const ORG_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': SITE + '#business',
   name: BRAND,
-  description: 'Landscaping, tree transplantation and irrigation company in Delhi NCR. Led by a botanist and a retired DDA engineer. Empanelled with NHAI, DDA and Indian Railways.',
+  description: 'Landscaping, tree transplantation and irrigation company based in Delhi, working across North and Central India. Led by a botanist and a retired DDA engineer. Empanelled with NHAI, DDA and Indian Railways.',
   url: SITE,
   logo: SITE + 'assets/images/logo/logo-black.png',
   image: SITE + 'assets/images/og-image.jpg',
   telephone: '+91-9811511558',
   email: EMAIL,
   address: { '@type': 'PostalAddress', streetAddress: 'B-328 (Ground Floor), New Ashok Nagar', addressLocality: 'Delhi', postalCode: '110096', addressCountry: 'IN' },
-  areaServed: { '@type': 'AdministrativeArea', name: 'Delhi NCR' },
+  areaServed: AREA_SERVED,
   knowsAbout: ['Landscaping', 'Tree transplantation', 'Drip irrigation', 'Sprinkler irrigation', 'Green belt development', 'Highway median plantation', 'Terrace gardens', 'Vertical gardens', 'Hardscaping', 'Landscape maintenance', 'Sports turf'],
 };
 
@@ -302,7 +311,7 @@ const heroPhotos = () => HERO_PHOTOS.map((p, i) => `<img src="${p.src}" alt="${e
 
 // Homepage questions. Answers use only facts stated elsewhere on the site.
 const FAQ = [
-  ['Which areas do you work in?', 'We are based in New Ashok Nagar, Delhi, and work across Delhi NCR. We also take on larger projects outside Delhi, such as moving 80 trees for Indian Railways in Ujjain.'],
+  ['Which areas do you work in?', 'We are based in New Ashok Nagar, Delhi. We work across Delhi NCR, North India and Central India. For example, we moved 80 trees for Indian Railways in Ujjain, Madhya Pradesh.'],
   ['Can you move a big tree instead of cutting it down?', 'Yes. We check the tree, prepare its roots, lift it with a crane and replant it. Then we water and check it until it grows new roots. On NH-307 we moved 155 mature trees for an NHAI project.'],
   ['Do you look after the garden after it is built?', 'Yes. We offer regular maintenance. You get a photo report every month, and we replace plants that fail on terms agreed in writing.'],
   ['Can my terrace hold a garden?', 'Often, yes, but we check first. Our engineer checks the roof load and waterproofing before any work starts. We use light soil and drip watering to keep the weight and water low.'],
@@ -354,8 +363,8 @@ ${logos ? clientsBlock() + '\n' : ''}      </div>
 // Home
 built.push(page({
   file: 'index.html', active: 'home',
-  title: 'Landscaping &amp; Tree Transplantation, Delhi NCR | Laavin',
-  description: 'Landscaping, tree transplantation and irrigation across Delhi NCR for builders, offices, hotels and homes. Empanelled with NHAI, DDA and Indian Railways.',
+  title: 'Landscaping &amp; Tree Transplantation in Delhi &amp; North India',
+  description: 'Delhi-based landscaping, tree transplantation and irrigation across North and Central India. Empanelled with NHAI, DDA and Indian Railways.',
   schema: [ORG_SCHEMA, FAQ_SCHEMA],
   scripts: ['assets/js/contact-form.js'],
   body: `    <section class="hero">
@@ -363,7 +372,7 @@ built.push(page({
         <div>
           <p class="eyebrow">Landscaping<span class="hide-sm"> · Terrace gardens</span> · Irrigation</p>
           <h1>Gardens and landscapes, <em>planted to survive.</em></h1>
-          <p class="hero-copy">For offices, hotels, builders, societies and homes across Delhi NCR. Planned by a botanist and an engineer to survive the heat, the water and the years after handover.</p>
+          <p class="hero-copy">For offices, hotels, builders, societies and homes, from Delhi NCR to North and Central India. Planned by a botanist and an engineer to survive the heat, the water and the years after handover.</p>
           <div class="hero-actions"><a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a><a class="btn btn-outline" href="#projects">See Our Projects <span>↓</span></a></div>
           <div class="micro-trust"><span class="dot"></span><span>Empanelled with NHAI, DDA and Indian Railways</span></div>
         </div>
@@ -410,7 +419,7 @@ ${proofStrip}
         <div class="about-copy">
           <p class="eyebrow">About us</p>
           <h2 class="h2">Plant science meets <em>solid engineering.</em></h2>
-          <p>Laavin Infrascapes is a Delhi landscaping and horticulture company. We design, build and maintain gardens, green belts and irrigation for offices, hotels, builders, societies and homes across Delhi NCR.</p>
+          <p>Laavin Infrascapes is a Delhi landscaping and horticulture company. We design, build and maintain gardens, green belts and irrigation for offices, hotels, builders, societies and homes across Delhi NCR, North India and Central India.</p>
           <p>Our work grew on demanding sites: highway corridors, industrial green belts and landfill slopes, for clients such as NHAI, Indian Railways and the Delhi Airport fuel facility. Those projects taught us to plan for survival, keep our paperwork in order and finish when promised. Today we bring the same discipline to every terrace, hotel, office and farmhouse.</p>
           <a class="btn" href="about.html">Meet the Team <span>↗</span></a>
         </div>
@@ -466,7 +475,7 @@ const aboutTrail = [['Home', 'index.html'], ['About us']];
 built.push(page({
   file: 'about.html', active: 'about',
   title: 'About Us: Botanist &amp; Engineer Led | Laavin Infrascapes',
-  description: 'Delhi NCR landscaping team led by a botanist and a retired DDA engineer. Empanelled with NHAI, DDA and Indian Railways.',
+  description: 'Delhi-based landscaping team led by a botanist and a retired DDA engineer, working across North and Central India. Empanelled with NHAI, DDA and Railways.',
   schema: [ORG_SCHEMA, breadcrumbSchema(aboutTrail)],
   body: `${pageHero({ trail: aboutTrail, eyebrow: 'About us', h1: 'A landscaping team built around <em>plants that survive.</em>', lead: `A Delhi-based team that designs, builds and maintains terrace gardens and landscapes for hotels, offices and farmhouses, with irrigation planned in from the start.`, photo: { src: 'assets/images/about/about-2.webp', alt: 'Our team reviewing a landscape plan on site' } })}
 
@@ -526,7 +535,7 @@ const SERVICES = [
     line: 'Design, planting and maintenance for terraces, hotels, offices and farmhouses.',
     proof: 'Cricket ground and running track, Angels Public School',
     title: 'Terrace, Hotel &amp; Office Landscaping | Laavin Infrascapes',
-    description: 'Terrace, balcony and vertical gardens, hotel and resort landscaping, office premises, farmhouse gardens, sports turf and landscape maintenance in Delhi NCR.',
+    description: 'Terrace, balcony and vertical gardens, hotel, office and farmhouse landscaping, sports turf and maintenance, across Delhi NCR and North India.',
     eyebrow: 'Landscape services', h1: 'Landscapes for terraces, balconies, hotels, offices <em>and farmhouses.</em>',
     lead: 'Whether it is a rooftop, a hotel arrival court, an office campus or a farmhouse estate, we design landscapes that look good on opening day and still look good five years on.',
     photo: { src: 'assets/images/services/landscaping-1.webp', alt: 'Palm trees and a wide lawn in front of a hotel building' },
@@ -548,8 +557,8 @@ const SERVICES = [
   { key: 'horticulture', file: 'horticulture-service.html', short: 'Horticultural Services', name: 'Horticultural',
     line: 'Tree transplantation and large-scale planting for highways, railways and industry.',
     proof: '155 mature trees moved on NH&#8209;307 for NHAI',
-    title: 'Tree Transplantation &amp; Green Belts | Laavin Infrascapes',
-    description: 'Mature tree transplantation, median and avenue plantation, green belts and slope turfing, with NHAI, Indian Railways and Delhi Airport projects delivered.',
+    title: 'Tree Transplantation &amp; Green Belts, North India | Laavin',
+    description: 'Mature tree transplantation, median and avenue plantation, green belts and slope turfing across North and Central India, for NHAI, Railways and industry.',
     eyebrow: 'Horticultural services', h1: 'Trees and planting for <em>sites of every size.</em>',
     lead: 'From mature tree transplantation on a national highway to green belts around industrial sites, our horticulture team plans the living part of every project.',
     photo: { src: 'assets/images/services/horticulture-1.webp', alt: 'Highway lined with trees on both sides' },
@@ -567,7 +576,7 @@ const SERVICES = [
     line: 'Water features, paving, lighting and shade structures, engineered for heavy use.',
     proof: 'Overseen by an engineer retired from DDA',
     title: 'Water Features, Paving &amp; Lighting | Laavin Infrascapes',
-    description: 'Water features, stone paving, landscape lighting, fencing, pergolas and gazebos for hotels, offices and farmhouses, overseen by a former DDA engineer.',
+    description: 'Water features, paving, landscape lighting, fencing and pergolas for hotels, offices and farmhouses in Delhi NCR and North India, overseen by an engineer.',
     eyebrow: 'Hardscaping services', h1: 'Built elements that last as long as <em>the landscape.</em>',
     lead: 'Paths, water features, lighting and shade structures for hotels, offices and farmhouses, built for heavy footfall, harsh summers and the monsoon.',
     photo: { src: 'assets/images/services/hardscaping-1.webp', alt: 'Brick garden path lit by low lights at night' },
@@ -586,8 +595,8 @@ const SERVICES = [
   { key: 'irrigation', file: 'irrigation-services.html', short: 'Irrigation Services', name: 'Irrigation',
     line: 'Drip and sprinkler systems that water each plant when it needs it.',
     proof: 'Designed, installed and serviced by our team',
-    title: 'Drip &amp; Sprinkler Irrigation in Delhi NCR | Laavin',
-    description: 'Drip and sprinkler irrigation for gardens, terraces, farmhouses, campuses and highways in Delhi NCR, designed, installed and serviced by one team.',
+    title: 'Drip &amp; Sprinkler Irrigation, Delhi &amp; North India | Laavin',
+    description: 'Drip and sprinkler irrigation for gardens, terraces, farmhouses, campuses and highways across Delhi NCR and North India, installed and serviced by one team.',
     eyebrow: 'Irrigation services', h1: 'Water by measure, <em>not by guesswork.</em>',
     lead: 'Drip and sprinkler systems for terraces, gardens, farmhouses, campuses and long highway stretches, planned in from the start so every plant gets the water it needs.',
     photo: { src: 'assets/images/services/irrigation-1.webp', alt: 'Sprinklers watering a lawn between trees at sunset' },
@@ -622,7 +631,7 @@ const serviceCard = (s, i) => `          <article class="service-card has-photo"
 built.push(page({
   file: 'services.html', active: 'services',
   title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
-  description: 'Landscaping, tree transplantation and green belts, hardscaping and drip irrigation from one accountable team in Delhi NCR.',
+  description: 'Landscaping, tree transplantation, green belts, hardscaping and drip irrigation from one team, based in Delhi and working across North and Central India.',
   schema: [ORG_SCHEMA, breadcrumbSchema(servicesTrail)],
   body: `${svcBar('services')}${pageHero({ trail: servicesTrail, eyebrow: 'What we do', h1: 'One team for every green and built <em>element of your site.</em>', lead: 'Whether you need trees moved, a terrace greened or a garden that waters itself, start with one service. Most sites need two or three, and one team delivers them all.' })}
 
@@ -684,7 +693,7 @@ for (const s of SERVICES) {
   const trail = [['Home', 'index.html'], ['Services', 'services.html'], [esc(s.short)]];
   built.push(page({
     file: s.file, active: s.key, title: s.title, description: s.description,
-    schema: [ORG_SCHEMA, breadcrumbSchema(trail), { '@context': 'https://schema.org', '@type': 'Service', name: s.short, description: s.description, serviceType: s.items.map(i => i[0]), provider: { '@id': SITE + '#business' }, areaServed: { '@type': 'AdministrativeArea', name: 'Delhi NCR' }, url: SITE + s.file }],
+    schema: [ORG_SCHEMA, breadcrumbSchema(trail), { '@context': 'https://schema.org', '@type': 'Service', name: s.short, description: s.description, serviceType: s.items.map(i => i[0]), provider: { '@id': SITE + '#business' }, areaServed: AREA_SERVED, url: SITE + s.file }],
     body: `${svcBar(s.key)}${pageHero({ trail, eyebrow: s.eyebrow, h1: s.h1, lead: s.lead, actions: `<a class="btn" href="contact.html">Book a Site Visit <span>↗</span></a>` })}
 
     <section class="chapters">
@@ -733,7 +742,7 @@ for (const a of articles) {
     ogImage: a.image,
     schema: [{
       '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.title.replace(/&amp;/g, '&'), description: a.description,
-      image: absUrl(a.image), datePublished: '2026-10-10', dateModified: a.draft ? '2026-10-10' : '2026-10-21',
+      image: absUrl(a.image), datePublished: isoDate(a.date), dateModified: a.draft ? '2026-10-10' : '2026-10-21',
       author: { '@type': 'Organization', name: BRAND, url: SITE },
       publisher: { '@type': 'Organization', name: BRAND, logo: { '@type': 'ImageObject', url: SITE + 'assets/images/logo/logo-black.png' } },
       mainEntityOfPage: SITE + a.slug + '.html',
@@ -742,7 +751,7 @@ for (const a of articles) {
           ${crumbs(trail)}
           <p class="eyebrow">${a.category}</p>
           <h1>${a.title}</h1>
-          <div class="article-meta"><span>${BRAND}</span><span><time datetime="2026-10-10">${a.date}</time></span><span>${a.readTime}</span></div>
+          <div class="article-meta"><span>${BRAND}</span><span><time datetime="${isoDate(a.date)}">${a.date}</time></span><span>${a.readTime}</span></div>
     </div></section>
 
     <section class="detail">
@@ -776,7 +785,7 @@ built.push(page({
     <section class="contact">
       <div class="container">
         <div class="info-grid">
-          <div class="info-card"><div class="proof-icon" aria-hidden="true">⌂</div><h2>Visit our office</h2><p>${ADDRESS}, India</p></div>
+          <div class="info-card"><div class="proof-icon" aria-hidden="true">⌂</div><h2>Visit our office</h2><p>${ADDRESS}, India</p><p>We work across Delhi NCR, North India and Central India.</p></div>
           <div class="info-card"><div class="proof-icon" aria-hidden="true">@</div><h2>Email</h2><p><a href="mailto:${EMAIL}">${EMAIL}</a></p></div>
           <div class="info-card"><div class="proof-icon" aria-hidden="true">↗</div><h2>Call or WhatsApp</h2><p><a href="tel:${TEL}">${PHONE}</a> · <a href="https://wa.me/${WA}" target="_blank" rel="noopener">Chat on WhatsApp</a></p></div>
         </div>
