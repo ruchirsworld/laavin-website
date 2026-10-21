@@ -604,19 +604,15 @@ const SERVICES = [
     side: ['Planning irrigation?', 'Get a zoned layout and estimate from our team.'] },
 ];
 
-// Services overview: sticky jump bar, then one compact row per service line
+// Services overview: sticky jump bar, then the four service lines as photo cards in one row
 const servicesTrail = [['Home', 'index.html'], ['Services']];
-const serviceRow = (s, i) => `          <article class="svc-row${i % 2 ? ' flip' : ''}" id="${s.key}">
-            <div class="svc-row-photo"><img src="${s.photo.src}" alt="${esc(s.photo.alt)}" width="900" height="560" loading="lazy"></div>
-            <div class="svc-row-copy">
-              <div class="service-num">${String(i + 1).padStart(2, '0')} / ${s.name.toUpperCase()}</div>
-              <h3>${esc(s.short)}</h3>
-              <p>${s.line}</p>
-              <ul class="svc-chips">${s.items.map(it => `<li>${it[0]}</li>`).join('')}</ul>
-              <p class="svc-proof">${s.proof}</p>
-              <a class="text-link" href="${s.file}">Explore ${s.name.toLowerCase()} <span>→</span></a>
-            </div>
-          </article>`;
+const SERVICE_BULLETS = {
+  landscaping: ['Terrace, balcony &amp; vertical gardens', 'Hotel, office &amp; farmhouse landscaping', 'Lawns, planting &amp; maintenance'],
+  horticulture: ['Mature tree transplantation', 'Median &amp; avenue plantation', 'Green belts &amp; slope turfing'],
+  hardscaping: ['Fountains &amp; water features', 'Pathways &amp; stone paving', 'Pergolas, gazebos &amp; lighting'],
+  irrigation: ['Drip &amp; sprinkler irrigation', 'Zoned, automated timers', 'Borewell &amp; treated STP water'],
+};
+const serviceCard = (s, i) => `          <article class="service-card has-photo" id="${s.key}"><div class="card-photo"><img src="${s.photo.src}" alt="${esc(s.photo.alt)}" width="900" height="560" loading="lazy"></div><div class="card-body"><div class="service-num">${String(i + 1).padStart(2, '0')} / ${s.name.toUpperCase()}</div><h3>${esc(s.short)}</h3><p>${s.line}</p><ul class="mini-list">${SERVICE_BULLETS[s.key].map(x => `<li>${x}</li>`).join('')}</ul><a class="text-link" href="${s.file}">Explore ${s.name.toLowerCase()} <span>→</span></a></div></article>`;
 built.push(page({
   file: 'services.html', active: 'services',
   title: 'Landscaping, Irrigation &amp; Hardscaping | Laavin Infrascapes',
@@ -631,8 +627,8 @@ built.push(page({
           <p>Every service we offer, in one place. Jump to the line you need. Many projects combine two or three, all delivered by the same team.</p>
         </div>
         <nav class="svc-bar" aria-label="Service lines">${SERVICES.map(s => `<a href="#${s.key}">${s.name}</a>`).join('')}</nav>
-        <div class="svc-rows">
-${SERVICES.map(serviceRow).join('\n')}
+        <div class="service-grid svc-four">
+${SERVICES.map(serviceCard).join('\n')}
         </div>
       </div>
     </section>
