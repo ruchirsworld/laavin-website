@@ -378,7 +378,7 @@ built.push(page({
         </div>
         <div class="hero-visual">
           <div class="hero-photo">${heroPhotos()}</div>
-          <div class="photo-label"><strong>Survival is part of the scope</strong><span>Species, soil, watering and aftercare are planned for every site, and tracked after handover.</span></div>
+          <div class="photo-label"><strong>Planted to survive, not just to look good</strong><span>Species, soil and watering chosen for each site, with aftercare built in.</span></div>
         </div>
       </div>
     </section>
